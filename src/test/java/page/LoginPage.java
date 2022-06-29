@@ -7,7 +7,7 @@ import wrappers.Button;
 import wrappers.UIElement;
 
 public class LoginPage extends BasePage {
-    private final static String pagePath = "login/";
+    private final static String pagePath = "/login/";
 
     // Блок описания селекторов для элементов
     private By logInButtonLocator = By.className("round_green_button");
