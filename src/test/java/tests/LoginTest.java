@@ -2,23 +2,46 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
-import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
+import models.UserBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import page.LoginPage;
 
 public class LoginTest extends BaseTest {
 
     @Test
-    public void successLoginTest() {
-        Assert.assertTrue(
-                loginStep.successLogin(
-                                ReadProperties.username(),
-                                ReadProperties.password()
-                        )
-                        .isPageOpened()
-        );
+    public void successLoginTest() throws InterruptedException {
+        UserBuilder user = new UserBuilder.Builder()
+                .withEmail(ReadProperties.username())
+                .withPsw(ReadProperties.password())
+                .build();
+
+        Assert.assertTrue(loginStep.successLogin(user.getEmail(), user.getPsw()).isPageOpened());
+    }
+
+    @Test
+    public void incorrectEmailLoginTest() throws InterruptedException {
+        UserBuilder user = new UserBuilder.Builder()
+                .withEmail("testUser")
+                .withPsw(ReadProperties.password())
+                .build();
+
+        Assert.assertEquals(
+                loginStep.incorrectLogin(user.getEmail(), user.getPsw()).getErrorTextElement().getText(),
+                "Wrong email or password",
+                "Неверное сообщение об ошибке");
+    }
+
+    @Test
+    public void incorrectPswLoginTest() throws InterruptedException {
+        UserBuilder user = new UserBuilder.Builder()
+                .withEmail(ReadProperties.username())
+                .withPsw("123456")
+                .build();
+
+        Assert.assertEquals(
+                loginStep.incorrectLogin(user.getEmail(), user.getPsw()).getErrorTextElement().getText(),
+                "Wrong email or password",
+                "Неверное сообщение об ошибке");
     }
 
 }
