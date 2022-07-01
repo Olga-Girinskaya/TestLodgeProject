@@ -7,8 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class ProjectPage extends BasePage {
     public final static String pagePath = "/a/32798";
 
-    private By headerTitleLabelLocator = By.cssSelector("#page_heading_cont"); // неверный локатор, оставила , чтобы тест не падал, когда исправлю переход на страницу с проектом, удалить
-    //private By headerTitleLabelLocator = By.id("projects_index"); // верный локатор, сейчас тест будет падать
+    private By headerTitleLabelLocator = By.id("projects_index");
 
     public ProjectPage(WebDriver driver) {
         super(driver);
@@ -22,6 +21,4 @@ public class ProjectPage extends BasePage {
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
-
-
 }

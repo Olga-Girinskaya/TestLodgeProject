@@ -10,7 +10,6 @@ import wrappers.UIElement;
 public class LoginPage extends BasePage {
 
     // Блок описания селекторов для элементов
-    //private final By logInButtonLocator = By.className("round_green_button");
     private final By emailInputLocator = By.id("username");
     private final By pswInputLocator = By.id("password");
     private final By buttonContinue = By.name("action");
@@ -38,12 +37,6 @@ public class LoginPage extends BasePage {
             return new UIElement(driver, pswInputLocator);
         }
     }
-
-   /* public Button getLoginButton() {
-        return new Button(driver, logInButtonLocator);
-    }
-
-    */
 
     public Button getLoginContinue() {
         return new Button(driver, buttonContinue);

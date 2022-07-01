@@ -3,7 +3,6 @@ package steps;
 import baseEntities.BaseStep;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import page.LoginPage;
 import page.ProjectPage;
 import page.StartPage;
@@ -39,14 +38,16 @@ public class LoginStep extends BaseStep {
     private void login(String email, String psw) throws InterruptedException {
         loginPage.getEmailInput().sendKeys(email);
         loginPage.getPswInput().sendKeys(psw);
-        // если появится капча, то нужно раскоментить
 
-        driver.switchTo().frame(0);
+        // если появится капча, то нужно раскоментить
+    /*    driver.switchTo().frame(0);
         Thread.sleep(2000);
         //driver.switchTo().frame(driver.findElement();
         Assert.assertTrue(loginPage.getCheckboxCaptcha().isDisplayed());
         loginPage.getCheckboxCaptcha().click();
         driver.switchTo().parentFrame();
+
+     */
 
         loginPage.getLoginContinue().click();
     }
