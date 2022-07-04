@@ -10,12 +10,10 @@ import wrappers.UIElement;
 public class LoginPage extends BasePage {
 
     // Блок описания селекторов для элементов
-    private final By emailInputLocator = By.id("username");
+    private final By emailInputLocator = By.id("name");
     private final By pswInputLocator = By.id("password");
-    private final By buttonContinue = By.name("action");
-    private final By checkboxCaptcha = By.id("recaptcha-anchor");
-    private final By errorTextLocator = By.id("error-element-password");
-    //private final By iframeLocator = By.cssSelector("#ulp-recaptcha > div > div > iframe");
+    private final By buttonLogin = By.id("button_primary");
+    private final By errorTextLocator =  By.className("error-text");
 
     // Блок иницализации
     public LoginPage(WebDriver driver) {
@@ -38,19 +36,9 @@ public class LoginPage extends BasePage {
         }
     }
 
-    public Button getLoginContinue() {
-        return new Button(driver, buttonContinue);
+    public Button getLoginButton() {
+        return new Button(driver, buttonLogin);
     }
-
-    public WebElement getCheckboxCaptcha() {
-        return waitsService.waitForExists(checkboxCaptcha);
-    }
-/*
-    public Button getCheckboxCaptcha() {
-        return new Button(driver, checkboxCaptcha);
-    }
-
- */
 
     public UIElement getErrorTextElement() {
         return new UIElement(driver, errorTextLocator);
