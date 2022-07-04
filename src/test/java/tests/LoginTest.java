@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 public class LoginTest extends BaseTest {
 
     @Test
-    public void successLoginTest() throws InterruptedException {
+    public void successLoginTest() {
         UserBuilder user = new UserBuilder.Builder()
                 .withEmail(ReadProperties.username())
                 .withPsw(ReadProperties.password())
@@ -19,7 +19,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void incorrectEmailLoginTest() throws InterruptedException {
+    public void incorrectEmailLoginTest() {
         UserBuilder user = new UserBuilder.Builder()
                 .withEmail("testUser")
                 .withPsw(ReadProperties.password())
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void incorrectPswLoginTest() throws InterruptedException {
+    public void incorrectPswLoginTest() {
         UserBuilder user = new UserBuilder.Builder()
                 .withEmail(ReadProperties.username())
                 .withPsw("123456")
