@@ -9,6 +9,10 @@ import wrappers.UIElement;
 public class AllTestCasePage extends BasePage {
     private final static String pagePath = "/index.php?/suites/view";
 
+    //для перехода на TestCasePage
+    private final By ProjectNameButton = By.linkText("Diploma");
+    private final By TestCasesButton = By.id("navigation-suites");
+
     //CRUD
 
     // Блок описания селекторов для элементов
@@ -40,6 +44,14 @@ public class AllTestCasePage extends BasePage {
 
     public Button getAddTestCaseButton() {
         return new Button(driver, AddTestCaseButton);
+    }
+
+    public Button getProjectNameButton() {
+        return new Button(driver, ProjectNameButton);
+    }
+
+    public Button getTestCasesButton(){
+        return new Button(driver,TestCasesButton);
     }
 
 

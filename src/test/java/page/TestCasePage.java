@@ -19,4 +19,5 @@ public class TestCasePage extends BasePage {
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
+
 }

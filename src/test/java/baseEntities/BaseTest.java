@@ -8,19 +8,19 @@ import page.AllTestCasePage;
 import page.TestCasePage;
 import services.BrowsersService;
 import steps.LoginStep;
+import steps.TestCaseStep;
 
 public class BaseTest {
     public WebDriver driver;
     protected LoginStep loginStep;
-    protected AllTestCasePage allTestCasePage;
-    protected TestCasePage testCasePage;
+    protected TestCaseStep testCaseStep;
+
 
     @BeforeMethod
     public void setup() {
         driver = new BrowsersService().getDriver();
         loginStep = new LoginStep(driver);
-        allTestCasePage = new AllTestCasePage(driver);
-        testCasePage=new TestCasePage(driver);
+        testCaseStep = new TestCaseStep(driver);
 
         driver.get(ReadProperties.getUrl());
     }
