@@ -16,7 +16,7 @@ public class AllTestCasePage extends BasePage {
     //CRUD
 
     // Блок описания селекторов для элементов
-    private final By AddTestCaseLocator = By.xpath("//*[contains(@class, 'button button-left button-add') and contains(text(), 'Add Test Case')]");
+    private final By AddTestCaseLocator = By.id("sidebar-cases-add");
     private final By TitleLocator = By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
     private final By AddTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
 

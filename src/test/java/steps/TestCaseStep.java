@@ -7,7 +7,7 @@ import page.AllTestCasePage;
 import page.TestCasePage;
 
 public class TestCaseStep extends BaseStep {
-    String Title = "diploma";
+    //String Title = "diploma";
 
     public TestCaseStep(WebDriver driver) {
         super(driver);
@@ -22,9 +22,9 @@ public class TestCaseStep extends BaseStep {
 
 
     @Step("Create Test Case")
-    public TestCasePage createTestCase()  {
+    public TestCasePage createTestCase(String title)  {
         allTestCasePage.getAddTestCase().click();
-        allTestCasePage.getAddTestCase().sendKeys(Title);
+        allTestCasePage.getTitle().sendKeys(title);
         allTestCasePage.getAddTestCaseButton().click();
         return testCasePage;
     }

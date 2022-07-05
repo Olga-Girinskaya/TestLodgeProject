@@ -2,9 +2,7 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
-import lombok.Lombok;
 import models.LombokBuilder;
-import models.UserBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -21,11 +19,13 @@ public class TestCaseTest extends BaseTest {
 //    }
 
     @Test
-    public void createTestCaseTest() {
+    public void createTestCaseTest(){
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         testCaseStep.pathToTestCases();
         LombokBuilder lombok = LombokBuilder.builder()
                 .title("Liza")
                 .build();
+
+        Assert.assertEquals(testCaseStep.createTestCase(lombok.getTitle()).getText());
     }
 }
