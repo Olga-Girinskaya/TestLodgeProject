@@ -10,9 +10,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void successLoginTest() {
-        UserBuilder user = new UserBuilder.Builder()
-                .withEmail(ReadProperties.username())
-                .withPsw(ReadProperties.password())
+        UserBuilder user = UserBuilder.builder()
+                .email(ReadProperties.username())
+                .psw(ReadProperties.password())
                 .build();
 
         Assert.assertTrue(loginStep.successLogin(user.getEmail(), user.getPsw()).isPageOpened());
@@ -20,9 +20,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void incorrectEmailLoginTest() {
-        UserBuilder user = new UserBuilder.Builder()
-                .withEmail("testUser")
-                .withPsw(ReadProperties.password())
+        UserBuilder user = UserBuilder.builder()
+                .email("testUser")
+                .psw(ReadProperties.password())
                 .build();
 
         Assert.assertEquals(
@@ -33,9 +33,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void incorrectPswLoginTest() {
-        UserBuilder user = new UserBuilder.Builder()
-                .withEmail(ReadProperties.username())
-                .withPsw("123456")
+        UserBuilder user = UserBuilder.builder()
+                .email(ReadProperties.username())
+                .psw("123456")
                 .build();
 
         Assert.assertEquals(

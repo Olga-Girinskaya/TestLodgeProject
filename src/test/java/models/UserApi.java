@@ -26,5 +26,5 @@ public class UserApi {
     private int mfaRequired;
     private String role;
     @SerializedName(value = "group_ids")
-    private Object groupIds;
+    private String[] groupIds;
 }
