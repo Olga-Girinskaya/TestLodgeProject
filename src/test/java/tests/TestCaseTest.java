@@ -22,10 +22,11 @@ public class TestCaseTest extends BaseTest {
     public void createTestCaseTest(){
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         testCaseStep.pathToTestCases();
+
         LombokBuilder lombok = LombokBuilder.builder()
                 .title("Liza")
                 .build();
 
-        Assert.assertEquals(testCaseStep.createTestCase(lombok.getTitle()).getText());
+        Assert.assertTrue(testCaseStep.createTestCase(lombok.getTitle()).isPageOpened());
     }
 }
