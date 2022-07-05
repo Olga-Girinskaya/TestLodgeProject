@@ -26,7 +26,8 @@ public class LoginTest extends BaseTest {
                 .build();
 
         Assert.assertEquals(
-                loginStep.incorrectLogin(user.getEmail(), user.getPsw()).getErrorTextElement().getText(),
+                loginStep.incorrectLogin(user.getEmail(), user.getPsw())
+                        .getErrorTextElement().getText(),
                 "Email/Login or Password is incorrect. Please try again.",
                 "Неверное сообщение об ошибке");
     }
