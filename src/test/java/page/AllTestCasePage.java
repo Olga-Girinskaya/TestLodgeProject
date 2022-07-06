@@ -25,21 +25,23 @@ public class AllTestCasePage extends BasePage {
 
     //update
     private final By TestCaseCheckBoxLocator =
-            By.xpath("//*[contains(@class, 'selectionCheckbox') and contains(@name, 'selected-90')]");
+            By.xpath("//*[contains(@class, 'selectionCheckbox') and contains(@name, 'selected-94')]");
     private final By TestCaseUpdateButton = By.className("editLink");
     private final By SaveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(@id, 'accept')]");
 
-    //delete
+//    //delete
     private final By TestCaseDeleteButton =
             By.cssSelector("[id = 'deleteCases']");
     private final By TestCaseDeletePermanentlyButton =
-            By.className("button button-left button-positive button-no-margin-right dialog-action-secondary button-black");
+            By.cssSelector("[class = 'button button-left button-positive button-no-margin-right dialog-action-secondary button-black']");
     private final By TestCaseConfirmDeleteButton =
-            By.className("button button-left button-black dialog-action-default");
+            By.cssSelector("[class = 'button button-left button-black dialog-action-default']");
 
 
 
-    private final By successTextLocator =  By.className("message message-success");
+    private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
+    private final By successUpdateTextLocator =
+            By.cssSelector("[class = 'message message-success']");
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
@@ -97,6 +99,10 @@ public class AllTestCasePage extends BasePage {
 
     public UIElement getSuccessText() {
         return new UIElement(driver, successTextLocator);
+    }
+
+    public UIElement getSuccessUpdateText() {
+        return new UIElement(driver, successUpdateTextLocator);
     }
 
 }

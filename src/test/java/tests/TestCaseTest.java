@@ -8,20 +8,6 @@ import org.testng.annotations.Test;
 
 public class TestCaseTest extends BaseTest {
 
-//    @Test
-//    public void successLoginTest() {
-//        UserBuilder user = new UserBuilder.Builder()
-//                .withEmail(ReadProperties.username())
-//                .withPsw(ReadProperties.password())
-//                .build();
-//
-//        Assert.assertTrue(loginStep.successLogin(user.getEmail(), user.getPsw()).isPageOpened());
-//    }
-//            Assert.assertEquals(
-//                    loginStep.incorrectLogin(user.getEmail(), user.getPsw()).getErrorTextElement().getText(),
-//                "Email/Login or Password is incorrect. Please try again.",
-//                        "Неверное сообщение об ошибке");
-
     @Test
     public void createTestCaseTest(){
         loginStep.login(ReadProperties.username(), ReadProperties.password());
@@ -41,10 +27,12 @@ public class TestCaseTest extends BaseTest {
         testCaseStep.pathToTestCases();
 
         TestCaseBuilder testCaseBuilder = TestCaseBuilder.builder()
-                .titleUpdate("упрврвнаер")
+                .titleUpdate("diploma update")
                 .build();
 
-        Assert.assertTrue(testCaseStep.updateTestCase(testCaseBuilder.getTitleUpdate()).isPageOpened());
+        Assert.assertEquals(testCaseStep.updateTestCase
+                        (testCaseBuilder.getTitleUpdate()).getSuccessUpdateText().getText(),
+                "Successfully updated the test case.");
     }
 
     @Test
@@ -52,7 +40,7 @@ public class TestCaseTest extends BaseTest {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         testCaseStep.pathToTestCases();
 
-
-        //Assert.assertEquals(testCaseStep.deleteTestCase().get);
+        Assert.assertEquals(testCaseStep.deleteTestCase().);
+        testCaseStep.deleteTestCase().;
     }
 }

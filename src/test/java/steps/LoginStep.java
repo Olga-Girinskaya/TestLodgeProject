@@ -8,7 +8,6 @@ import page.LoginPage;
 
 public class LoginStep extends BaseStep {
 
-
     public LoginStep(WebDriver driver) {
         super(driver);
 
@@ -27,7 +26,7 @@ public class LoginStep extends BaseStep {
         return loginPage;
     }
 
-    private void login(String email, String psw) throws InterruptedException {
+    public void login(String email, String psw) {
         loginPage.getEmailInput().sendKeys(email);
         loginPage.getPswInput().sendKeys(psw);
         loginPage.getLoginButton().click();

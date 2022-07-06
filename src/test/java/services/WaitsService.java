@@ -43,8 +43,8 @@ public class WaitsService {
 
     public WebElement fluentWaitForElement(By locator) {
         Wait<WebDriver> fluent = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(50))
-                .pollingEvery(Duration.ofMillis(50))
+                .withTimeout(Duration.ofSeconds(500))
+                .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class);
 
         return fluent.until(driver -> driver.findElement(locator));
