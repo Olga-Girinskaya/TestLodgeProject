@@ -29,6 +29,14 @@ public class AllTestCasePage extends BasePage {
     private final By TestCaseUpdateButton = By.className("editLink");
     private final By SaveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(@id, 'accept')]");
 
+    //delete
+    private final By TestCaseDeleteButton =
+            By.cssSelector("[id = 'deleteCases']");
+    private final By TestCaseDeletePermanentlyButton =
+            By.className("button button-left button-positive button-no-margin-right dialog-action-secondary button-black");
+    private final By TestCaseConfirmDeleteButton =
+            By.className("button button-left button-black dialog-action-default");
+
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
@@ -75,6 +83,14 @@ public class AllTestCasePage extends BasePage {
     public Button getSaveTestCaseButton(){
         return new Button(driver, SaveTestCaseButton);
     }
+
+    public Button getTestCaseDeleteButton() { return new Button(driver, TestCaseDeleteButton);}
+
+    public Button getTestCaseDeletePermanentlyButton() { return new Button(driver, TestCaseDeletePermanentlyButton);}
+
+    public Button getTestCaseConfirmDeleteButton() { return new Button(driver, TestCaseConfirmDeleteButton);}
+
+
 
 
 }

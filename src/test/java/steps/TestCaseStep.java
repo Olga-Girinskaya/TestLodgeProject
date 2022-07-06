@@ -13,7 +13,7 @@ public class TestCaseStep extends BaseStep {
     }
 
     @Step("from DashboardPage to AllTestCasePage")
-    public AllTestCasePage pathToTestCases(){
+    public AllTestCasePage pathToTestCases() {
         allTestCasePage.getProjectNameButton().click();
         allTestCasePage.getTestCasesButton().click();
         return allTestCasePage;
@@ -21,7 +21,7 @@ public class TestCaseStep extends BaseStep {
 
 
     @Step("Create Test Case")
-    public TestCasePage createTestCase(String title)  {
+    public TestCasePage createTestCase(String title) {
         allTestCasePage.getAddTestCase().click();
         allTestCasePage.getTitle().sendKeys(title);
         allTestCasePage.getAddTestCaseButton().click();
@@ -29,13 +29,22 @@ public class TestCaseStep extends BaseStep {
     }
 
     @Step("Update Test Case")
-    public TestCasePage updateTestCase(String titleUpdate){
+    public TestCasePage updateTestCase(String titleUpdate) {
         allTestCasePage.getTestCaseCheckBox().click();
         allTestCasePage.getTestCaseUpdateButton().click();
         allTestCasePage.getTitle().click();
         allTestCasePage.getTitle().clear();
         allTestCasePage.getTitle().sendKeys(titleUpdate);
         allTestCasePage.getSaveTestCaseButton().click();
+        return testCasePage;
+    }
+
+    @Step("Delete Test Case")
+    public TestCasePage deleteTestCase() {
+        allTestCasePage.getTestCaseCheckBox().click();
+        allTestCasePage.getTestCaseDeleteButton().click();
+        allTestCasePage.getTestCaseDeletePermanentlyButton().click();
+        allTestCasePage.getTestCaseConfirmDeleteButton().click();
         return testCasePage;
     }
 }
