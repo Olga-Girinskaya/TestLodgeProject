@@ -43,7 +43,7 @@ public class WaitsService {
 
     public WebElement fluentWaitForElement(By locator) {
         Wait<WebDriver> fluent = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(30))
+                .withTimeout(Duration.ofSeconds(50))
                 .pollingEvery(Duration.ofMillis(50))
                 .ignoring(NoSuchElementException.class);
 

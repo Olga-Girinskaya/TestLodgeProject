@@ -29,4 +29,16 @@ public class TestCaseTest extends BaseTest {
 
         Assert.assertTrue(testCaseStep.createTestCase(testCaseBuilder.getTitle()).isPageOpened());
     }
+
+    @Test
+    public void updateTestCaseTest(){
+        loginStep.login(ReadProperties.username(), ReadProperties.password());
+        testCaseStep.pathToTestCases();
+
+        TestCaseBuilder testCaseBuilder = TestCaseBuilder.builder()
+                .titleUpdate("упрврвнаер")
+                .build();
+
+        Assert.assertTrue(testCaseStep.updateTestCase(testCaseBuilder.getTitleUpdate()).isPageOpened());
+    }
 }

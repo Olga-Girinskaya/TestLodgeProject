@@ -19,12 +19,15 @@ public class AllTestCasePage extends BasePage {
     // Блок описания селекторов для элементов
     //create
     private final By AddTestCaseLocator = By.id("sidebar-cases-add");
-    private final By TitleLocator = By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
+    private final By TitleLocator =
+            By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
     private final By AddTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
 
     //update
-    private final By TestCaseCheckBoxLocator = By.name("selected-90");
+    private final By TestCaseCheckBoxLocator =
+            By.xpath("//*[contains(@class, 'selectionCheckbox') and contains(@name, 'selected-90')]");
     private final By TestCaseUpdateButton = By.className("editLink");
+    private final By SaveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(@id, 'accept')]");
 
 
     public void openPageByUrl() {
@@ -67,6 +70,10 @@ public class AllTestCasePage extends BasePage {
 
     public Button getTestCaseUpdateButton(){
         return new Button(driver, TestCaseUpdateButton);
+    }
+
+    public Button getSaveTestCaseButton(){
+        return new Button(driver, SaveTestCaseButton);
     }
 
 
