@@ -21,11 +21,11 @@ public class TestCaseStep extends BaseStep {
 
 
     @Step("Create Test Case")
-    public TestCasePage createTestCase(String title) {
+    public AllTestCasePage createTestCase(String title) {
         allTestCasePage.getAddTestCase().click();
         allTestCasePage.getTitle().sendKeys(title);
         allTestCasePage.getAddTestCaseButton().click();
-        return testCasePage;
+        return allTestCasePage;
     }
 
     @Step("Update Test Case")

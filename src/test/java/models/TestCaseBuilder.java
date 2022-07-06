@@ -6,7 +6,8 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
-
+@NoArgsConstructor
+@AllArgsConstructor
 public class TestCaseBuilder {
     public String title;
     public String titleUpdate;

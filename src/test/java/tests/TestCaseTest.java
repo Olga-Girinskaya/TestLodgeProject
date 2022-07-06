@@ -17,6 +17,10 @@ public class TestCaseTest extends BaseTest {
 //
 //        Assert.assertTrue(loginStep.successLogin(user.getEmail(), user.getPsw()).isPageOpened());
 //    }
+//            Assert.assertEquals(
+//                    loginStep.incorrectLogin(user.getEmail(), user.getPsw()).getErrorTextElement().getText(),
+//                "Email/Login or Password is incorrect. Please try again.",
+//                        "Неверное сообщение об ошибке");
 
     @Test
     public void createTestCaseTest(){
@@ -24,10 +28,11 @@ public class TestCaseTest extends BaseTest {
         testCaseStep.pathToTestCases();
 
         TestCaseBuilder testCaseBuilder = TestCaseBuilder.builder()
-                .title("Liza")
+                .title("diploma")
                 .build();
 
-        Assert.assertTrue(testCaseStep.createTestCase(testCaseBuilder.getTitle()).isPageOpened());
+        Assert.assertEquals(testCaseStep.createTestCase(testCaseBuilder.getTitle()).getSuccessText().getText(),
+                "Successfully added the new test case. Add another");
     }
 
     @Test
@@ -40,5 +45,14 @@ public class TestCaseTest extends BaseTest {
                 .build();
 
         Assert.assertTrue(testCaseStep.updateTestCase(testCaseBuilder.getTitleUpdate()).isPageOpened());
+    }
+
+    @Test
+    public void deleteTestCaseTest(){
+        loginStep.login(ReadProperties.username(), ReadProperties.password());
+        testCaseStep.pathToTestCases();
+
+
+        //Assert.assertEquals(testCaseStep.deleteTestCase().get);
     }
 }

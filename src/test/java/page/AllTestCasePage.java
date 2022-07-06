@@ -38,6 +38,9 @@ public class AllTestCasePage extends BasePage {
             By.className("button button-left button-black dialog-action-default");
 
 
+
+    private final By successTextLocator =  By.className("message message-success");
+
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
@@ -92,5 +95,8 @@ public class AllTestCasePage extends BasePage {
 
 
 
+    public UIElement getSuccessText() {
+        return new UIElement(driver, successTextLocator);
+    }
 
 }
