@@ -41,6 +41,5 @@ public class TestCaseTest extends BaseTest {
         testCaseStep.pathToTestCases();
 
         Assert.assertEquals(testCaseStep.deleteTestCase().);
-        testCaseStep.deleteTestCase().;
     }
 }
