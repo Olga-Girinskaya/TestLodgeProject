@@ -23,10 +23,10 @@ public class TestCaseTest extends BaseTest {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         testCaseStep.pathToTestCases();
 
-        TestCaseBuilder lombok = TestCaseBuilder.builder()
+        TestCaseBuilder testCaseBuilder = TestCaseBuilder.builder()
                 .title("Liza")
                 .build();
 
-        Assert.assertTrue(testCaseStep.createTestCase(lombok.getTitle()).isPageOpened());
+        Assert.assertTrue(testCaseStep.createTestCase(testCaseBuilder.getTitle()).isPageOpened());
     }
 }

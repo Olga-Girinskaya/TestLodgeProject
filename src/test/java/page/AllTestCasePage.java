@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import wrappers.Button;
+import wrappers.CheckBox;
 import wrappers.UIElement;
 
 public class AllTestCasePage extends BasePage {
@@ -16,9 +17,15 @@ public class AllTestCasePage extends BasePage {
     //CRUD
 
     // Блок описания селекторов для элементов
+    //create
     private final By AddTestCaseLocator = By.id("sidebar-cases-add");
     private final By TitleLocator = By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
     private final By AddTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
+
+    //update
+    private final By TestCaseCheckBoxLocator = By.name("selected-90");
+    private final By TestCaseUpdateButton = By.className("editLink");
+
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
@@ -52,6 +59,14 @@ public class AllTestCasePage extends BasePage {
 
     public Button getTestCasesButton(){
         return new Button(driver,TestCasesButton);
+    }
+
+    public CheckBox getTestCaseCheckBox(){
+        return new CheckBox(driver, TestCaseCheckBoxLocator);
+    }
+
+    public Button getTestCaseUpdateButton(){
+        return new Button(driver, TestCaseUpdateButton);
     }
 
 
