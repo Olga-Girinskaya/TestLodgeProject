@@ -7,6 +7,6 @@ import lombok.*;
 @Getter
 @Setter
 
-public class LombokBuilder {
+public class TestCaseBuilder {
     public String title;
 }

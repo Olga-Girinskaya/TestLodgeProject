@@ -1,6 +1,9 @@
 package baseEntities;
 
 import configuration.ReadProperties;
+import io.qameta.allure.Allure;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,7 +14,7 @@ import steps.LoginStep;
 import steps.TestCaseStep;
 
 public class BaseTest {
-    public WebDriver driver;
+    public static WebDriver driver;
     protected LoginStep loginStep;
     protected TestCaseStep testCaseStep;
 
@@ -26,7 +29,13 @@ public class BaseTest {
     }
 
     @AfterMethod
+
     public void tearDown() {
+        Allure.getLifecycle().addAttachment(                        //Screenshot for all Test
+                "screenshot", "image/png", "png"
+                , ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)
+        );
+
         driver.quit();
     }
 }

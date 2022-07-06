@@ -7,7 +7,6 @@ import page.AllTestCasePage;
 import page.TestCasePage;
 
 public class TestCaseStep extends BaseStep {
-    //String Title = "diploma";
 
     public TestCaseStep(WebDriver driver) {
         super(driver);
