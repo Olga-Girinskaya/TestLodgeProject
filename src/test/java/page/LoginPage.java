@@ -3,7 +3,6 @@ package page;
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import wrappers.Button;
 import wrappers.UIElement;
 
@@ -13,7 +12,7 @@ public class LoginPage extends BasePage {
     private final By emailInputLocator = By.id("name");
     private final By pswInputLocator = By.id("password");
     private final By buttonLogin = By.id("button_primary");
-    private final By errorTextLocator =  By.className("error-text");
+    private final By errorTextLocator = By.className("error-text");
 
     // Блок иницализации
     public LoginPage(WebDriver driver) {
