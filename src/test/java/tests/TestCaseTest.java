@@ -40,6 +40,6 @@ public class TestCaseTest extends BaseTest {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         testCaseStep.pathToTestCases();
 
-        Assert.assertEquals(testCaseStep.deleteTestCase().);
+        //Assert.assertEquals(testCaseStep.deleteTestCase().);
     }
 }

@@ -11,4 +11,5 @@ import lombok.*;
 public class TestCaseBuilder {
     public String title;
     public String titleUpdate;
+    public String project;
 }
