@@ -11,7 +11,7 @@ public class AllTestCasePage extends BasePage {
     private final static String pagePath = "/index.php?/suites/view";
 
     //для перехода на TestCasePage
-    private final By ProjectNameButton = By.linkText("Diploma");
+    private final By ProjectNameButton = By.linkText("diploma");
     private final By TestCasesButton = By.id("navigation-suites");
 
     //CRUD
@@ -25,9 +25,9 @@ public class AllTestCasePage extends BasePage {
 
     //update
     private final By TestCaseCheckBoxLocator =
-            By.xpath("//*[contains(@class, 'selectionCheckbox') and contains(@name, 'selected-94')]");
+            By.xpath("//tbody/child::tr[2]/child::td[2]/input");
     private final By TestCaseUpdateButton = By.className("editLink");
-    private final By SaveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(@id, 'accept')]");
+    private final By SaveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Save')]");
 
 //    //delete
     private final By TestCaseDeleteButton =
@@ -40,8 +40,7 @@ public class AllTestCasePage extends BasePage {
 
 
     private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
-    private final By successUpdateTextLocator =
-            By.cssSelector("[class = 'message message-success']");
+
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
@@ -101,8 +100,6 @@ public class AllTestCasePage extends BasePage {
         return new UIElement(driver, successTextLocator);
     }
 
-    public UIElement getSuccessUpdateText() {
-        return new UIElement(driver, successUpdateTextLocator);
-    }
+
 
 }

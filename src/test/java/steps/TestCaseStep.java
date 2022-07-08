@@ -29,14 +29,14 @@ public class TestCaseStep extends BaseStep {
     }
 
     @Step("Update Test Case")
-    public AllTestCasePage updateTestCase(String titleUpdate) {
+    public TestCasePage updateTestCase(String titleUpdate) {
         allTestCasePage.getTestCaseCheckBox().click();
         allTestCasePage.getTestCaseUpdateButton().click();
         allTestCasePage.getTitle().click();
         allTestCasePage.getTitle().clear();
         allTestCasePage.getTitle().sendKeys(titleUpdate);
         allTestCasePage.getSaveTestCaseButton().click();
-        return allTestCasePage;
+        return testCasePage;
     }
 
     @Step("Delete Test Case")

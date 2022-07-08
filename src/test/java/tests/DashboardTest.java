@@ -12,11 +12,11 @@ public class DashboardTest extends BaseTest {
     public void createProjectTest(){
         loginStep.login(ReadProperties.username(), ReadProperties.password());
 
-        TestCaseBuilder testCaseBuilder = TestCaseBuilder.builder()
+        TestCaseBuilder testCase = TestCaseBuilder.builder()
                 .project("diploma")
                 .build();
 
-        Assert.assertEquals(dashboardStep.createProjectStep(testCaseBuilder.getProject()).getSuccessText().getText(),
+        Assert.assertEquals(dashboardStep.createProjectStep(testCase.getProject()).getSuccessText().getText(),
                 "Successfully added the new project.");
     }
 }

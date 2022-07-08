@@ -10,8 +10,6 @@ public class ProjectsPage extends BasePage {
 
     private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
 
-
-
     public ProjectsPage(WebDriver driver) {
         super(driver);
     }
