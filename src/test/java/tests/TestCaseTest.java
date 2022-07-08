@@ -35,12 +35,12 @@ public class TestCaseTest extends BaseTest {
 //                "Successfully updated the test case.");
 //    }
 
-//    @Test
-//    public void deleteTestCaseTest(){
-//        loginStep.login(ReadProperties.username(), ReadProperties.password());
-//        testCaseStep.pathToTestCases();
-//        testCaseStep.deleteTestCase();
-//
-//        //Assert.assertFalse(testCaseStep.deleteTestCase().getTestCaseCheckBox());
-//    }
+    @Test
+    public void deleteTestCaseTest(){
+        loginStep.login(ReadProperties.username(), ReadProperties.password());
+        testCaseStep.pathToTestCases();
+        testCaseStep.deleteTestCase();
+
+        //Assert.assertFalse(testCaseStep.deleteTestCase().getTestCaseCheckBox());
+    }
 }
