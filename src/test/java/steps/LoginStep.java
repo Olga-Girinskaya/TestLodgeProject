@@ -26,7 +26,8 @@ public class LoginStep extends BaseStep {
         return loginPage;
     }
 
-    private void login(String email, String psw) {
+    public void login(String email, String psw) {
+
         loginPage.getEmailInput().sendKeys(email);
         loginPage.getPswInput().sendKeys(psw);
         loginPage.getLoginButton().click();

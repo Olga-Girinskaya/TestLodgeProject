@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UIElement implements WebElement {
-    private WebDriver driver;
+    private final WebDriver driver;
     private By by;
-    private WaitsService waits;
-    private WebElement webElement;
+    private final WaitsService waits;
+    private final WebElement webElement;
 
     public UIElement(WebDriver driver, By by) {
         this.driver = driver;
@@ -157,4 +157,5 @@ public class UIElement implements WebElement {
                 .build()
                 .perform();
     }
+
 }
