@@ -6,10 +6,10 @@ import models.TestCaseBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestCaseTestBuilder extends BaseTest {
+public class TestCaseTest extends BaseTest {
 
     @Test
-    public void createTestCaseTest(){
+    public void createTestCaseTest() {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         testCaseStep.pathToTestCases();
 
@@ -17,7 +17,7 @@ public class TestCaseTestBuilder extends BaseTest {
                 .title("diploma")
                 .build();
 
-        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText(),
+        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
                 "Successfully added the new test case. Add another");
     }
 
