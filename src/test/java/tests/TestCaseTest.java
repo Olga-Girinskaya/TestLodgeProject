@@ -6,7 +6,7 @@ import models.TestCaseBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestCaseTestBuilder extends BaseTest {
+public class TestCaseTest extends BaseTest {
 
     @Test
     public void createTestCaseTest(){
@@ -35,12 +35,12 @@ public class TestCaseTestBuilder extends BaseTest {
 //                "Successfully updated the test case.");
 //    }
 
-//    @Test
-//    public void deleteTestCaseTest(){
-//        loginStep.login(ReadProperties.username(), ReadProperties.password());
-//        testCaseStep.pathToTestCases();
-//        testCaseStep.deleteTestCase();
-//
-//        //Assert.assertFalse(testCaseStep.deleteTestCase().getTestCaseCheckBox());
-//    }
+    @Test
+    public void deleteTestCaseTest(){
+        loginStep.login(ReadProperties.username(), ReadProperties.password());
+        testCaseStep.pathToTestCases();
+        testCaseStep.deleteTestCase();
+
+        //Assert.assertFalse(testCaseStep.deleteTestCase().getTestCaseCheckBox());
+    }
 }
