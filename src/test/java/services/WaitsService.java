@@ -13,8 +13,8 @@ import java.time.Duration;
 import java.util.List;
 
 public class WaitsService {
-    private WebDriverWait wait;
-    private WebDriver driver;
+    private final WebDriverWait wait;
+    private final WebDriver driver;
 
     public WaitsService(WebDriver driver, Duration timeout) {
         this.driver = driver;
@@ -49,4 +49,5 @@ public class WaitsService {
 
         return fluent.until(driver -> driver.findElement(locator));
     }
+
 }

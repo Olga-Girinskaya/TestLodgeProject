@@ -34,7 +34,7 @@ public class BaseTest {
     @AfterMethod
 
     public void tearDown() {
-        Allure.getLifecycle().addAttachment(                        //Screenshot for all Test
+        Allure.getLifecycle().addAttachment(
                 "screenshot", "image/png", "png"
                 , ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
 
