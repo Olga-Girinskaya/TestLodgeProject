@@ -11,36 +11,39 @@ public class AllTestCasePage extends BasePage {
     private final static String pagePath = "/index.php?/suites/view";
 
     //для перехода на TestCasePage
-    private final By ProjectNameButton = By.linkText("diploma");
-    private final By TestCasesButton = By.id("navigation-suites");
+    private final By projectNameButton = By.linkText("diploma");
+    private final By testCasesButton = By.id("navigation-suites");
 
     //CRUD
-
     // Блок описания селекторов для элементов
     //create
-    private final By AddTestCaseLocator = By.id("sidebar-cases-add");
-    private final By TitleLocator =
-            By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
-    private final By AddTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
+    private final By addTestCaseLocator = By.id("sidebar-cases-add");
+//    private final By titleLocator =
+//            By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
+
+    private final By titleLocator = By.xpath("//input[@id ='title']");
+    private final By addTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
 
     //update
-    private final By TestCaseCheckBoxLocator =
+    private final By testCaseCheckBoxLocator =
             By.xpath("//tbody/child::tr[2]/child::td[2]/input");
-    private final By TestCaseUpdateButton = By.className("editLink");
-    private final By SaveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Save')]");
+    private final By testCaseUpdateButton = By.className("editLink");
+
+   // private final By saveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Save')]");
+    private final By saveTestCaseButton = By.id("accept");
 
 //    //delete
-    private final By TestCaseDeleteButton =
+    private final By testCaseDeleteButton =
             By.cssSelector("[id = 'deleteCases']");
-    private final By TestCaseDeletePermanentlyButton =
+    private final By testCaseDeletePermanentlyButton =
             By.cssSelector("[class = 'button button-left button-positive button-no-margin-right dialog-action-secondary button-black']");
-    private final By TestCaseConfirmDeleteButton =
+    private final By testCaseConfirmDeleteButton =
             By.cssSelector("[class = 'button button-left button-black dialog-action-default']");
-
-
 
     private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
 
+    private final By errorTextLocator =
+            By.xpath("//*[@class= 'message message-error']");
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
@@ -52,54 +55,54 @@ public class AllTestCasePage extends BasePage {
 
     @Override
     protected By getPageIdentifier() {
-        return AddTestCaseLocator;
+        return addTestCaseLocator;
     }
 
     // Блок атомарных методов
     public UIElement getAddTestCase() {
-        return new UIElement(driver, AddTestCaseLocator);
+        return new UIElement(driver, addTestCaseLocator);
     }
 
     public UIElement getTitle() {
-        return new UIElement(driver, TitleLocator);
+        return new UIElement(driver, titleLocator);
     }
 
     public Button getAddTestCaseButton() {
-        return new Button(driver, AddTestCaseButton);
+        return new Button(driver, addTestCaseButton);
     }
 
     public Button getProjectNameButton() {
-        return new Button(driver, ProjectNameButton);
+        return new Button(driver, projectNameButton);
     }
 
     public Button getTestCasesButton(){
-        return new Button(driver,TestCasesButton);
+        return new Button(driver, testCasesButton);
     }
 
     public CheckBox getTestCaseCheckBox(){
-        return new CheckBox(driver, TestCaseCheckBoxLocator);
+        return new CheckBox(driver, testCaseCheckBoxLocator);
     }
 
     public Button getTestCaseUpdateButton(){
-        return new Button(driver, TestCaseUpdateButton);
+        return new Button(driver, testCaseUpdateButton);
     }
 
     public Button getSaveTestCaseButton(){
-        return new Button(driver, SaveTestCaseButton);
+        return new Button(driver, saveTestCaseButton);
     }
 
-    public Button getTestCaseDeleteButton() { return new Button(driver, TestCaseDeleteButton);}
+    public Button getTestCaseDeleteButton() { return new Button(driver, testCaseDeleteButton);}
 
-    public Button getTestCaseDeletePermanentlyButton() { return new Button(driver, TestCaseDeletePermanentlyButton);}
+    public Button getTestCaseDeletePermanentlyButton() { return new Button(driver, testCaseDeletePermanentlyButton);}
 
-    public Button getTestCaseConfirmDeleteButton() { return new Button(driver, TestCaseConfirmDeleteButton);}
-
-
+    public Button getTestCaseConfirmDeleteButton() { return new Button(driver, testCaseConfirmDeleteButton);}
 
     public UIElement getSuccessText() {
         return new UIElement(driver, successTextLocator);
     }
 
-
+    public UIElement getErrorText() {
+        return new UIElement(driver, errorTextLocator);
+    }
 
 }

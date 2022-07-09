@@ -22,7 +22,6 @@ public class BrowsersService {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setHeadless(ReadProperties.isHeadless());
                 chromeOptions.addArguments("--disable-gpu");
-                //chromeOptions.addArguments("--window-size=1920,1200");
                 chromeOptions.addArguments("--ignore-certificate-errors");
                 chromeOptions.addArguments("--silent");
                 chromeOptions.addArguments("--start-maximized");
@@ -43,9 +42,7 @@ public class BrowsersService {
     }
 
     public WebDriver getDriver() {
-        //driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
-        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(40));
         driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(60));

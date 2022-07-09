@@ -39,7 +39,7 @@ public class DashboardPage extends BasePage {
         return new UIElement(driver, headerTitleLabelLocator);
     }
 
-    public Button getProjectAddButton(){
+    public Button getProjectAddButton() {
         return new Button(driver, projectAddButton);
     }
 
@@ -47,7 +47,8 @@ public class DashboardPage extends BasePage {
         return new UIElement(driver, projectNameLocator);
     }
 
-    public Button getThisProjectAddButton(){
+    public Button getThisProjectAddButton() {
         return new Button(driver, thisProjectAddButton);
     }
+
 }
