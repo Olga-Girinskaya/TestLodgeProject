@@ -7,8 +7,11 @@ import models.UserBuilder;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import page.TestCasePage;
 
 public class TestCaseTest extends BaseTest {
+
+    TestCasePage testCasePage;
 
     UserBuilder user = UserBuilder.builder()
             .email(ReadProperties.username())
@@ -62,7 +65,7 @@ public class TestCaseTest extends BaseTest {
                 .title(generatedString)
                 .build();
 
-        Integer titleTestcase = testCasePage.getTitleLocator().getText().length();
+        Integer titleTestcase = testCasePage.getTitleLocator.getText().length();
         Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
                 "Successfully added the new test case. Add another");
         Assert.assertEquals(titleTestcase, 250, "Case Title > 250 char");
