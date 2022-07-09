@@ -12,12 +12,12 @@ import steps.DashboardStep;
 import steps.LoginStep;
 import steps.TestCaseStep;
 
+
 public class BaseTest {
     public static WebDriver driver;
     protected LoginStep loginStep;
     protected TestCaseStep testCaseStep;
     protected DashboardStep dashboardStep;
-
 
     @BeforeMethod
     public void setup() {
@@ -30,7 +30,6 @@ public class BaseTest {
     }
 
     @AfterMethod
-
     public void tearDown() {
         Allure.getLifecycle().addAttachment(
                 "screenshot", "image/png", "png"

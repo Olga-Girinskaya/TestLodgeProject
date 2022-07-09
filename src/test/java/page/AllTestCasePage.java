@@ -7,7 +7,7 @@ import wrappers.Button;
 import wrappers.CheckBox;
 import wrappers.UIElement;
 
-public class allTestCasePage extends BasePage {
+public class AllTestCasePage extends BasePage {
     private final static String pagePath = "/index.php?/suites/view";
 
     //для перехода на TestCasePage
@@ -18,15 +18,19 @@ public class allTestCasePage extends BasePage {
     // Блок описания селекторов для элементов
     //create
     private final By addTestCaseLocator = By.id("sidebar-cases-add");
-    private final By titleLocator =
-            By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
+//    private final By titleLocator =
+//            By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
+
+    private final By titleLocator = By.xpath("//input[@id ='title']");
     private final By addTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
 
     //update
     private final By testCaseCheckBoxLocator =
             By.xpath("//tbody/child::tr[2]/child::td[2]/input");
     private final By testCaseUpdateButton = By.className("editLink");
-    private final By saveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Save')]");
+
+   // private final By saveTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Save')]");
+    private final By saveTestCaseButton = By.id("accept");
 
 //    //delete
     private final By testCaseDeleteButton =
@@ -38,11 +42,14 @@ public class allTestCasePage extends BasePage {
 
     private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
 
+    private final By errorTextLocator =
+            By.xpath("//*[@class= 'message message-error']");
+
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
 
-    public allTestCasePage(WebDriver driver) {
+    public AllTestCasePage(WebDriver driver) {
         super(driver);
     }
 
@@ -94,6 +101,8 @@ public class allTestCasePage extends BasePage {
         return new UIElement(driver, successTextLocator);
     }
 
-
+    public UIElement getErrorText() {
+        return new UIElement(driver, errorTextLocator);
+    }
 
 }

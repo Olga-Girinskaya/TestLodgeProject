@@ -8,7 +8,7 @@ public class BaseStep {
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected DashboardPage dashboardPage;
-    protected page.allTestCasePage allTestCasePage;
+    protected AllTestCasePage allTestCasePage;
     protected TestCasePage testCasePage;
     protected ProjectsPage projectsPage;
 
@@ -17,7 +17,7 @@ public class BaseStep {
         this.driver = driver;
         loginPage = new LoginPage(driver);
         dashboardPage=new DashboardPage(driver);
-        allTestCasePage=new allTestCasePage(driver);
+        allTestCasePage=new AllTestCasePage(driver);
         testCasePage = new TestCasePage(driver);
         projectsPage = new ProjectsPage(driver);
     }

@@ -2,6 +2,10 @@ package testsApi;
 
 import com.github.javafaker.Faker;
 import configuration.Endpoints;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.path.json.JsonPath;
 import models.UserApi;
@@ -13,14 +17,16 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
+@Epic("Тестирование API user")
 public class UserApiTest extends BaseApiTest {
 
     public UserApi user;
     private JsonPath newUser;
-
     Faker faker = new Faker();
 
-    @Test
+    @Test(testName = "Запрос POST на создание пользователя")
+    @Feature("Создание пользователя")
+    @Step("Пользователь с ролью Lead создан")
     public void successAddUserTest() {
 
         user = UserApi.builder()
@@ -31,6 +37,7 @@ public class UserApiTest extends BaseApiTest {
 
         newUser = given()
                 .body(user, ObjectMapperType.GSON)
+                .filter(new AllureRestAssured())
                 .when()
                 .post(Endpoints.ADD_USER)
                 .then()
@@ -39,9 +46,12 @@ public class UserApiTest extends BaseApiTest {
                 .log().body()
                 .body("role", equalTo("Lead"))
                 .extract().jsonPath();
+
     }
 
-    @Test(dependsOnMethods = "successAddUserTest")
+    @Test(testName = "Запрос POST на редактирование роли пользователя",dependsOnMethods = "successAddUserTest")
+    @Feature("Редактирование роли пользователя")
+    @Step("Роль пользователя изменена на Tester")
     public void successUpdateUserTest() {
 
         user = UserApi.builder()
@@ -51,6 +61,7 @@ public class UserApiTest extends BaseApiTest {
 
         newUser = given()
                 .body(user, ObjectMapperType.GSON)
+                .filter(new AllureRestAssured())
                 .when()
                 .post(Endpoints.UPDATE_USER)
                 .then()
@@ -61,11 +72,14 @@ public class UserApiTest extends BaseApiTest {
                 .extract().jsonPath();
     }
 
-    @Test(dependsOnMethods = "successUpdateUserTest")
+    @Test(testName = "Отправка запроса GET на зачитку данных пользователя",dependsOnMethods = "successUpdateUserTest")
+    @Feature("Получение данных пользователя")
+    @Step("Пользователь успешно зачитан")
     public void successGetUserTest() {
 
         given()
                 .pathParams("user_id", newUser.getInt("id"))
+                .filter(new AllureRestAssured())
                 .when()
                 .get(Endpoints.GET_USER)
                 .then()
@@ -78,11 +92,14 @@ public class UserApiTest extends BaseApiTest {
                 .extract();
     }
 
-    @Test
+    @Test(testName = "Получение ошибки на зачитку пользователя с некорректным ID")
+    @Feature("Валидация на зачитку пользователя с некорректным или несуществующим ID")
+    @Step("Получена ошибка при зачитке пользователя с некорректным ID")
     public void failGetUserWithoutIdTest() {
 
         given()
                 .pathParams("user_id", "incorrectId")
+                .filter(new AllureRestAssured())
                 .when()
                 .get(Endpoints.GET_USER)
                 .then()
@@ -93,7 +110,9 @@ public class UserApiTest extends BaseApiTest {
                 .extract();
     }
 
-    @Test
+    @Test(testName = "Получение ошибки на создание пользователя с именем, превышающим допустимый размер поля")
+    @Feature("Валидация на создание пользователя с именем > 250 символов")
+    @Step("Подучена ошибка на создание пользователя с именем > 250 символов")
     public void failAddUserNameToLongTest() {
         String generatedString = RandomStringUtils.randomAlphabetic(251);
         user = UserApi.builder()
@@ -103,6 +122,7 @@ public class UserApiTest extends BaseApiTest {
 
         given()
                 .body(user)
+                .filter(new AllureRestAssured())
                 .when()
                 .post(Endpoints.ADD_USER)
                 .then()
