@@ -3,7 +3,6 @@ package steps;
 import baseEntities.BaseStep;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import page.AllTestCasePage;
 import page.TestCasePage;
 
 public class TestCaseStep extends BaseStep {
@@ -21,7 +20,7 @@ public class TestCaseStep extends BaseStep {
 
 
     @Step("Create Test Case")
-    public AllTestCasePage createTestCase(String title) {
+    public page.allTestCasePage createTestCase(String title) {
         allTestCasePage.getAddTestCase().click();
         allTestCasePage.getTitle().sendKeys(title);
         allTestCasePage.getAddTestCaseButton().click();

@@ -7,8 +7,6 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import page.AllTestCasePage;
-import page.TestCasePage;
 import services.BrowsersService;
 import steps.DashboardStep;
 import steps.LoginStep;
