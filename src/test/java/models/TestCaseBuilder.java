@@ -14,4 +14,6 @@ public class TestCaseBuilder {
     public String step;
     public String expectedResult;
     public String project;
+    public String steps;
+    public String preconditions;
 }

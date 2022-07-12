@@ -11,8 +11,11 @@ public class TestCasePage extends BasePage {
 
     private final static String pagePath = "/index.php?/cases/view";
 
-//    private final By successTextLocator =
-//            By.xpath("//div[contains(@id, 'content-inner')]/child::*");
+    private final By successTextLocator =
+            By.cssSelector(".message.message-success");
+    //By.xpath("//*[contains(@class, 'message message-success')]");
+
+
 
     private final By TestCaseCheckBoxLocator =
             By.xpath("//*[contains(@class, 'selectionCheckbox') and contains(@name, 'selected-4')]");
@@ -35,18 +38,13 @@ public class TestCasePage extends BasePage {
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
-//
-//    public UIElement getSuccessText() {
-//        return new UIElement(driver, successTextLocator);
-//    }
+
+    public UIElement getSuccessText() {
+        return new UIElement(driver, successTextLocator);}
 
     public CheckBox getTestCaseCheckBox() {
         return new CheckBox(driver, TestCaseCheckBoxLocator);
     }
-//
-//    public UIElement getNameTestCaseLocator() {
-//        return new UIElement(driver, nameTestCaseLocator);
-//    }
 
     public UIElement getStepDisplay() {
         return new UIElement(driver, stepDisplay);

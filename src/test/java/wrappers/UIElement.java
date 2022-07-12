@@ -18,7 +18,7 @@ public class UIElement implements WebElement {
         this.driver = driver;
         this.by = by;
         this.waits = new WaitsService(driver, Duration.ofSeconds(20));
-        this.webElement = driver.findElement(by);
+        this.webElement = waits.waitForVisibilityLocatedBy(by);
     }
 
     public UIElement(WebDriver driver, WebElement webElement) {

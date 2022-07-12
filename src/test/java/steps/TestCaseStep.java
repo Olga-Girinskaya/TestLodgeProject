@@ -2,8 +2,10 @@ package steps;
 
 import baseEntities.BaseStep;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import page.AllTestCasePage;
+import page.DashboardPage;
 import page.TestCasePage;
 
 public class TestCaseStep extends BaseStep {
@@ -28,12 +30,14 @@ public class TestCaseStep extends BaseStep {
     }
 
     @Step("Update Test Case")
-    public TestCasePage updateTestCase(String titleUpdate) {
-        allTestCasePage.getTestCaseCheckBox().click();
-        allTestCasePage.getTestCaseUpdateButton().click();
-        allTestCasePage.getTitle().click();
-        allTestCasePage.getTitle().clear();
-        allTestCasePage.getTitle().sendKeys(titleUpdate);
+    public TestCasePage updateTestCase(String preconditions, String steps) {
+        allTestCasePage.getIdTestCaseButton().click();
+        allTestCasePage.getEditTestCaseButton().click();
+        allTestCasePage.getPreconditionsTestCase().click();
+        allTestCasePage.getPreconditionsTestCase().sendKeys(preconditions);
+        allTestCasePage.getStepsTestCase().click();
+        allTestCasePage.getStepsTestCase().sendKeys(steps);
+
         allTestCasePage.getSaveTestCaseButton().click();
         return testCasePage;
     }
@@ -44,11 +48,33 @@ public class TestCaseStep extends BaseStep {
         allTestCasePage.getTestCaseDeleteButton().click();
         allTestCasePage.getTestCaseDeletePermanentlyButton().click();
         allTestCasePage.getTestCaseConfirmDeleteButton().click();
-       // return testCasePage;
+    }
+
+    @Step
+    public Integer checkForDeletionStep() {
+        return allTestCasePage.getIdTestCaseButton().findElements(By.linkText("C125")).size();
     }
 
     public Integer countCharNameTestCase() {
 
         return testCasePage.getNameLocator().getText().length();
+    }
+
+    @Step
+    public void fileUploadStep() {
+        allTestCasePage.getIdTestCaseButton().click();
+        allTestCasePage.getEditTestCaseButton().click();
+        allTestCasePage.getDropFiles().click();
+        allTestCasePage.getNewAddButton().submit();
+        allTestCasePage.getNewAddButton()
+                .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
+        allTestCasePage.getAttachButton().click();
+    }
+
+    @Step
+    public DashboardPage popupWindowStep(){
+        dashboardPage.getWindowPopupButton().click();
+        dashboardPage.getWindowText();
+        return dashboardPage;
     }
 }
