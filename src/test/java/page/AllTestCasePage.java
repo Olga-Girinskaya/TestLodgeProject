@@ -53,13 +53,13 @@ public class AllTestCasePage extends BasePage {
     private final By dropFilesLocator =
             By.xpath("//*[@class= 'attachment-list-empty-add']");
     private final By newAddButton =
-            By.xpath("//body[@class = 'modern']/input[4]");
+            By.xpath("//body/input[2]");
+    //By.xpath("//*[@class = 'modern']/input[2]");
+
     private  final By attachButton
             = By.id("attachmentNewSubmit");
 
     private final By dialogWindowTextLocator = By.xpath("//*[contains(@class, 'ui-dialog-title') and contains(text(), 'Confirmation')]");
-
-
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);

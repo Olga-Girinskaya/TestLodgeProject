@@ -21,7 +21,7 @@ public class TestCaseTest extends BaseTest {
             .build();
 
     @Feature("Создание test case")
-    @Test
+    @Test(testName = "Tест на создание сущности")
     public void createTestCaseTest() {
         loginStep.login(user.getEmail(), user.getPsw());
         testCaseStep.pathToTestCases();
@@ -35,7 +35,7 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Feature("Редактирование test case")
-    @Test
+    @Test(testName = "Tест на редактирование сущности")
     public void updateTestCaseTest() { //done
         loginStep.login(user.getEmail(), user.getPsw());
         testCaseStep.pathToTestCases();
@@ -51,7 +51,7 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Feature("Удаление test case") //done
-    @Test
+    @Test(testName = "Tест на удаление сущности")
     public void deleteTestCaseTest() {
         loginStep.login(user.getEmail(), user.getPsw());
         testCaseStep.pathToTestCases();
@@ -95,24 +95,24 @@ public class TestCaseTest extends BaseTest {
                 "Field Title is a required field.");
     }
 
-    @Feature("Загрузка файла")
-    @Test
+    @Feature("Загрузка Upload.txt в test case")
+    @Test(testName = "тест на загрузку файла")
     public void fileUploadTest() {//не находит xpath: //body[@class = 'modern']/input[4]]
         loginStep.login(user.getEmail(), user.getPsw());
         testCaseStep.pathToTestCases();
         testCaseStep.fileUploadStep();
     }
 
-    @Feature("Отображение всплывающего сообщения")
-    @Test
+    @Feature("Отображение всплывающего сообщения Guides & Help")
+    @Test(testName = "тест на проверку всплывающего сообщения")
     public void popupWindowTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
         Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Guides & Help");
     }
 
-    @Feature("Отображение диалогового окна")
-    @Test
+    @Feature("Отображение Confirmation при удалении test case")
+    @Test(testName = "тест отображения диалогового окна")
     public void dialogWindowTest() {
         loginStep.login(user.getEmail(), user.getPsw());
         testCaseStep.pathToTestCases();
