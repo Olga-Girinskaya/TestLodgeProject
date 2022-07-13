@@ -9,7 +9,6 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.mapper.ObjectMapperType;
 import io.restassured.path.json.JsonPath;
 import models.UserApi;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
@@ -49,7 +48,7 @@ public class UserApiTest extends BaseApiTest {
 
     }
 
-    @Test(testName = "Запрос POST на редактирование роли пользователя",dependsOnMethods = "successAddUserTest")
+    @Test(testName = "Запрос POST на редактирование роли пользователя", dependsOnMethods = "successAddUserTest")
     @Feature("Редактирование роли пользователя")
     @Step("Роль пользователя изменена на Tester")
     public void successUpdateUserTest() {
@@ -59,7 +58,7 @@ public class UserApiTest extends BaseApiTest {
                 .roleId(3)
                 .build();
 
-        newUser = given()
+        given()
                 .body(user, ObjectMapperType.GSON)
                 .filter(new AllureRestAssured())
                 .when()
@@ -72,7 +71,7 @@ public class UserApiTest extends BaseApiTest {
                 .extract().jsonPath();
     }
 
-    @Test(testName = "Отправка запроса GET на зачитку данных пользователя",dependsOnMethods = "successUpdateUserTest")
+    @Test(testName = "Отправка запроса GET на зачитку данных пользователя", dependsOnMethods = "successUpdateUserTest")
     @Feature("Получение данных пользователя")
     @Step("Пользователь успешно зачитан")
     public void successGetUserTest() {
@@ -89,47 +88,6 @@ public class UserApiTest extends BaseApiTest {
                 .body("id", is(newUser.getInt("id")))
                 .body("name", equalTo(newUser.getString("name")))
                 .body("role", equalTo("Tester"))
-                .extract();
-    }
-
-    @Test(testName = "Получение ошибки на зачитку пользователя с некорректным ID")
-    @Feature("Валидация на зачитку пользователя с некорректным или несуществующим ID")
-    @Step("Получена ошибка при зачитке пользователя с некорректным ID")
-    public void failGetUserWithoutIdTest() {
-
-        given()
-                .pathParams("user_id", "incorrectId")
-                .filter(new AllureRestAssured())
-                .when()
-                .get(Endpoints.GET_USER)
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.SC_BAD_REQUEST)
-                .log().body()
-                .body("error", equalTo("Field :user is not a valid ID."))
-                .extract();
-    }
-
-    @Test(testName = "Получение ошибки на создание пользователя с именем, превышающим допустимый размер поля")
-    @Feature("Валидация на создание пользователя с именем > 250 символов")
-    @Step("Подучена ошибка на создание пользователя с именем > 250 символов")
-    public void failAddUserNameToLongTest() {
-        String generatedString = RandomStringUtils.randomAlphabetic(251);
-        user = UserApi.builder()
-                .name(generatedString)
-                .email(faker.internet().emailAddress())
-                .build();
-
-        given()
-                .body(user)
-                .filter(new AllureRestAssured())
-                .when()
-                .post(Endpoints.ADD_USER)
-                .then()
-                .assertThat()
-                .statusCode(HttpStatus.SC_BAD_REQUEST)
-                .log().body()
-                .body("error", equalTo("Field :name is too long (250 characters at most)."))
                 .extract();
     }
 }

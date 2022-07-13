@@ -4,6 +4,7 @@ import configuration.ReadProperties;
 import io.qameta.allure.Allure;
 import io.qameta.allure.AllureLifecycle;
 import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import io.qameta.allure.model.Status;
 import io.qameta.allure.model.StepResult;
 import io.restassured.RestAssured;
@@ -29,6 +30,7 @@ import static io.restassured.RestAssured.given;
 public class BaseApiTest {
 
     @BeforeTest
+    @Step("Прохождение авторизации")
     public void setupEnv() {
         RestAssured.baseURI = ReadProperties.getUrl();
 
