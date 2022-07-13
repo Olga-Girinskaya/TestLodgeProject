@@ -25,6 +25,7 @@ public class TestCasePage extends BasePage {
     private final By stepDisplay = By.id("custom_steps_display");
     private final By saveButton = By.id("accept");
     private final By nameLocator = By.cssSelector(".link-tooltip.content-header-title-tooltip");
+    private final By nameOneLocator = By.cssSelector(".content-header-title.page_title");
 
     public TestCasePage(WebDriver driver) {
         super(driver);
@@ -60,5 +61,9 @@ public class TestCasePage extends BasePage {
 
     public UIElement getNameLocator() {
         return new UIElement(driver, nameLocator);
+    }
+
+    public UIElement getNameOneLocator() {
+        return new UIElement(driver, nameOneLocator);
     }
 }

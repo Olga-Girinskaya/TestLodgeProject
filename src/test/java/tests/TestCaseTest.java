@@ -119,4 +119,23 @@ public class TestCaseTest extends BaseTest {
 
         Assert.assertEquals(testCaseStep.dialogWindowStep().getDialogWindowTextLocator().getText(), "Confirmation");
     }
+
+    @Feature("название test case при вводе > 1 символа")
+    @Test(testName = "Ввод названия test case с 1 символом")
+    @Step("Название test case с 1 символом")
+    public void oneAddTestCaseNameSymbolTest() {
+        loginStep.login(user.getEmail(), user.getPsw());
+
+        String generatedString = RandomStringUtils.randomAlphabetic(1);
+        testCaseStep.pathToTestCases();
+
+        TestCaseBuilder testCase = TestCaseBuilder.builder()
+                .title(generatedString)
+                .build();
+
+        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
+                "Successfully added the new test case. Add another");
+
+        Assert.assertEquals(testCaseStep.countCharOneNameTestCase(), 1, "Case Title 1 char");
+    }
 }
