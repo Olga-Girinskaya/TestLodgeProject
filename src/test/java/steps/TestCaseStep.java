@@ -87,7 +87,6 @@ public class TestCaseStep extends BaseStep {
     }
 
     public Integer countCharOneNameTestCase() {
-
         return testCasePage.getNameOneLocator().getText().length();
     }
 

@@ -120,9 +120,9 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.dialogWindowStep().getDialogWindowTextLocator().getText(), "Confirmation");
     }
 
-    @Feature("название test case при вводе > 1 символа")
-    @Test(testName = "Ввод названия test case с 1 символом")
-    @Step("Название test case с 1 символом")
+    @Feature(" test case при вводе 1 символа")
+    @Test(testName = "тест на граничные значения test case с 1 символом")
+    @Step(" test case с 1 символом")
     public void oneAddTestCaseNameSymbolTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
@@ -136,6 +136,44 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
                 "Successfully added the new test case. Add another");
 
-        Assert.assertEquals(testCaseStep.countCharOneNameTestCase(), 1, "Case Title 1 char");
+        Assert.assertEquals(testCaseStep.countCharOneNameTestCase(), 1, "Case Title not 1 char");
+    }
+
+    @Feature(" test case при вводе 250 символов")
+    @Test(testName = "тест на граничные значения test case с 250 символами")
+    @Step("test case с 250 символами")
+    public void maxAddTestCaseNameSymbolTest() {
+        loginStep.login(user.getEmail(), user.getPsw());
+
+        String generatedString = RandomStringUtils.randomAlphabetic(250);
+        testCaseStep.pathToTestCases();
+
+        TestCaseBuilder testCase = TestCaseBuilder.builder()
+                .title(generatedString)
+                .build();
+
+        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
+                "Successfully added the new test case. Add another");
+
+        Assert.assertEquals(testCaseStep.countCharNameTestCase(), 250, "Case Title not 250 char");
+    }
+
+    @Feature(" test case при вводе 250 символов")
+    @Test(testName = "тест на граничные значения test case с 250 символами")
+    @Step("test case с 250 символами")
+    public void maxMinusOneAddTestCaseNameSymbolTest() {
+        loginStep.login(user.getEmail(), user.getPsw());
+
+        String generatedString = RandomStringUtils.randomAlphabetic(249);
+        testCaseStep.pathToTestCases();
+
+        TestCaseBuilder testCase = TestCaseBuilder.builder()
+                .title(generatedString)
+                .build();
+
+        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
+                "Successfully added the new test case. Add another");
+
+        Assert.assertEquals(testCaseStep.countCharNameTestCase(), 249, "Case Title not 249 char");
     }
 }
