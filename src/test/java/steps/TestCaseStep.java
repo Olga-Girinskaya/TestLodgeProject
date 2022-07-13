@@ -77,4 +77,14 @@ public class TestCaseStep extends BaseStep {
         dashboardPage.getWindowText();
         return dashboardPage;
     }
+
+    @Step
+    public AllTestCasePage dialogWindowStep(){
+        allTestCasePage.getTestCaseCheckBox().click();
+        allTestCasePage.getTestCaseDeleteButton().click();
+        allTestCasePage.getDialogWindowTextLocator();
+        return allTestCasePage;
+    }
+
+
 }

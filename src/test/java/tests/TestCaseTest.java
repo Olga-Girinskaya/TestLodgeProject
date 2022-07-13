@@ -95,6 +95,7 @@ public class TestCaseTest extends BaseTest {
                 "Field Title is a required field.");
     }
 
+    @Feature("Загрузка файла")
     @Test
     public void fileUploadTest() {//не находит xpath: //body[@class = 'modern']/input[4]]
         loginStep.login(user.getEmail(), user.getPsw());
@@ -102,34 +103,20 @@ public class TestCaseTest extends BaseTest {
         testCaseStep.fileUploadStep();
     }
 
-//    @Test
-//    public void createUpdateDeleteTest() {
-//        loginStep.login(user.getEmail(), user.getPsw());
-//        testCaseStep.pathToTestCases();
-//
-//        TestCaseBuilder testCase = TestCaseBuilder.builder()
-//                .title("Создание test case")
-//                .preconditions("preconditions")
-//                .steps("steps")
-//                .build();
-//
-//        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
-//                "Successfully added the new test case. Add another");
-//
-//        Assert.assertEquals(testCaseStep.updateTestCase
-//                        (testCase.getPreconditions(), testCase.getSteps()).getSuccessText().getText(),
-//                "Successfully updated the test case.");
-//
-//        testCaseStep.deleteTestCase();
-//    }
-
-    @Feature("Тест на проверку всплывающего сообщения")//done
+    @Feature("Отображение всплывающего сообщения")
     @Test
-    public void popupWindowTest() throws InterruptedException {
-
+    public void popupWindowTest() {
         loginStep.login(user.getEmail(), user.getPsw());
-        //Thread.sleep(5000);
 
         Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Guides & Help");
+    }
+
+    @Feature("Отображение диалогового окна")
+    @Test
+    public void dialogWindowTest() {
+        loginStep.login(user.getEmail(), user.getPsw());
+        testCaseStep.pathToTestCases();
+
+        Assert.assertEquals(testCaseStep.dialogWindowStep().getDialogWindowTextLocator().getText(), "Confirmation");
     }
 }

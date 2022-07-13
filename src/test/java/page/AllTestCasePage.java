@@ -57,6 +57,10 @@ public class AllTestCasePage extends BasePage {
     private  final By attachButton
             = By.id("attachmentNewSubmit");
 
+    private final By dialogWindowTextLocator = By.xpath("//*[contains(@class, 'ui-dialog-title') and contains(text(), 'Confirmation')]");
+
+
+
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
     }
@@ -135,5 +139,8 @@ public class AllTestCasePage extends BasePage {
 
     public UIElement getAttachButton() {
         return new UIElement(driver, attachButton);}
+
+    public UIElement getDialogWindowTextLocator() {
+        return new UIElement(driver, dialogWindowTextLocator);}
 
 }
