@@ -58,7 +58,7 @@ public class TestCaseTest extends BaseTest {
         //Assert.assertFalse(testCaseStep.deleteTestCase().getTestCaseCheckBox());
     }
 
-    @Feature("Обрезка названия test case при вводе > 251 символов")
+    @Feature("Обрезка названия test case до 250 символов при вводе 251 символа")
     @Test(testName = "Ввод названия test case > 250 символов")
     @Step("Название test case обрезано до 250 символов")
     public void failAddTestCaseNameToLongTestTest() {

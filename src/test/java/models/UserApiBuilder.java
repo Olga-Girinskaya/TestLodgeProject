@@ -3,13 +3,14 @@ package models;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
-@Data
+import java.util.List;
+
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserApi {
+public class UserApiBuilder {
 
     private int id;
     private String name;
@@ -26,6 +27,6 @@ public class UserApi {
     private int mfaRequired;
     private String role;
     @SerializedName(value = "group_ids")
-    private String[] groupIds;
+    private List<UserApiBuilder> groupIds;
     private String error;
 }
