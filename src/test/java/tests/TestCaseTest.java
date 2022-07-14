@@ -8,12 +8,13 @@ import io.qameta.allure.Step;
 import models.TestCaseBuilder;
 import models.UserBuilder;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Epic("UI тестирование test cases")
 public class TestCaseTest extends BaseTest {
+
+    protected String ID;
 
     UserBuilder user = UserBuilder.builder()
             .email(ReadProperties.username())
@@ -176,4 +177,27 @@ public class TestCaseTest extends BaseTest {
 
         Assert.assertEquals(testCaseStep.countCharNameTestCase(), 249, "Case Title not 249 char");
     }
+
+
+//    @Test
+//    public void createTestCaseTest1() {
+//        loginStep.login(user.getEmail(), user.getPsw());
+//        testCaseStep.pathToTestCases();
+//
+//        TestCaseBuilder testCase = TestCaseBuilder.builder()
+//                .title("Создание test case")
+//                .build();
+//
+//        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
+//                "Successfully added the new test case. Add another");
+//
+//        ID = "150";
+//        System.out.println(ID);
+//    }
+//
+//    @Test
+//    public void createTestCaseTest2() {
+//        loginStep.login(user.getEmail(), user.getPsw());
+//        System.out.println(ID);
+//    }
 }

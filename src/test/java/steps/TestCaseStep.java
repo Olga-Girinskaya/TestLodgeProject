@@ -65,7 +65,7 @@ public class TestCaseStep extends BaseStep {
         allTestCasePage.getIdTestCaseButton().click();
         allTestCasePage.getEditTestCaseButton().click();
         allTestCasePage.getDropFiles().click();
-        allTestCasePage.getNewAddButton().submit();
+        allTestCasePage.getNewAddButton().click();//ошибка
         allTestCasePage.getNewAddButton()
                 .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
         allTestCasePage.getAttachButton().click();
