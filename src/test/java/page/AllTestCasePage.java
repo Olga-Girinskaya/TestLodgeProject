@@ -25,7 +25,7 @@ public class AllTestCasePage extends BasePage {
     private final By addTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
 
     //UPDATE
-    private final By idTestCaseButton = By.linkText("C125");
+    private final By idTestCaseButton = By.linkText("C138");
     private final By testCaseCheckBoxLocator =
             By.xpath("//tbody/child::tr[2]/child::td[2]/input");
     private final By testCaseUpdateButton = By.className("editLink");
