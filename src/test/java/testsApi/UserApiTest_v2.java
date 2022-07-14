@@ -62,6 +62,21 @@ public class UserApiTest_v2 extends BaseApiTest {
         userHelper.getUser(userId, expected);
     }
 
+    @Test(testName = "Отправка запроса GET на зачитку данных пользователя по email", dependsOnMethods = "successGetUserTest")
+    @Feature("Получение данных пользователя по email")
+    @Step("Пользователь успешно зачитан по email")
+    public void successGetUserByEmailTest() {
+
+        UserApiBuilder expected = UserApiBuilder.builder()
+                .role("Tester")
+                .name(userId.getName())
+                .email(userId.getEmail())
+                .id(userId.getId())
+                .build();
+
+        userHelper.getUserByEmail(userId, expected);
+    }
+
     @Test(testName = "Получение ошибки на зачитку пользователя с несуществующим ID")
     @Feature("Валидация на зачитку пользователя с несуществующим ID")
     @Step("Получена ошибка при зачитке пользователя с несуществующим ID")

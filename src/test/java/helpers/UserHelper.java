@@ -80,6 +80,24 @@ public class UserHelper extends UserApiBuilder {
                 .extract().as(UserApiBuilder.class, ObjectMapperType.GSON);
     }
 
+    public UserApiBuilder getUserByEmail(UserApiBuilder userId, UserApiBuilder expected) {
+
+        return given()
+                .pathParams("email", userId.getEmail())
+                .filter(new AllureRestAssured())
+                .when()
+                .get(Endpoints.GET_USER_BY_EMAIL)
+                .then()
+                .assertThat()
+                .statusCode(HttpStatus.SC_OK)
+                .log().body()
+                .body("id", is(expected.getId()))
+                .body("name", equalTo(expected.getName()))
+                .body("email", equalTo(expected.getEmail()))
+                .body("role", equalTo(expected.getRole()))
+                .extract().as(UserApiBuilder.class, ObjectMapperType.GSON);
+    }
+
     public UserApiBuilder getUserErrorInt(UserApiBuilder userId, String expected) {
 
         return given()
