@@ -5,13 +5,12 @@ import lombok.*;
 
 import java.util.List;
 
-@Data
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserApi {
+public class UserApiBuilder {
 
     private int id;
     private String name;
@@ -28,6 +27,6 @@ public class UserApi {
     private int mfaRequired;
     private String role;
     @SerializedName(value = "group_ids")
-    private List[] groupIds;
+    private List<UserApiBuilder> groupIds;
     private String error;
 }
