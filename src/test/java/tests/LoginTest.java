@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 @Epic("Тестирование логина")
 public class LoginTest extends BaseTest {
-    UserBuilder user;
+    private UserBuilder user;
 
     @Feature("Успешный логин")
     @Test

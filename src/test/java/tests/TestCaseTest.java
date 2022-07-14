@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 @Epic("UI тестирование test cases")
 public class TestCaseTest extends BaseTest {
 
-    UserBuilder user = UserBuilder.builder()
+    private UserBuilder user = UserBuilder.builder()
             .email(ReadProperties.username())
             .psw(ReadProperties.password())
             .build();
