@@ -35,21 +35,21 @@ public class TestCaseTest extends BaseTest {
                 "Successfully added the new test case. Add another");
     }
 
-    @Feature("Редактирование test case")//+
-    @Test(testName = "Tест на редактирование сущности")
-    public void updateTestCaseTest() {
-        loginStep.login(user.getEmail(), user.getPsw());
-        testCaseStep.pathToTestCases();
-
-        TestCaseBuilder testCase = TestCaseBuilder.builder()
-                .preconditions("preconditions")
-                .steps("steps")
-                .build();
-
-        Assert.assertEquals(testCaseStep.updateTestCase
-                        (testCase.getPreconditions(), testCase.getSteps()).getSuccessText().getText(),
-                "Successfully updated the test case.");
-    }
+//    @Feature("Редактирование test case")//+
+//    @Test(testName = "Tест на редактирование сущности")
+//    public void updateTestCaseTest() {
+//        loginStep.login(user.getEmail(), user.getPsw());
+//        testCaseStep.pathToTestCases();
+//
+//        TestCaseBuilder testCase = TestCaseBuilder.builder()
+//                .preconditions("preconditions")
+//                .steps("steps")
+//                .build();
+//
+//        Assert.assertEquals(testCaseStep.updateTestCase
+//                        (testCase.getPreconditions(), testCase.getSteps()).getSuccessText().getText(),
+//                "Successfully updated the test case.");
+//    }
 
     @Feature("Удаление test case") //+
     @Test(testName = "Tест на удаление сущности")
@@ -196,11 +196,21 @@ public class TestCaseTest extends BaseTest {
        // System.out.println(ID);
     }
 
-    @Test(dependsOnMethods = "createTestCaseTest1")
-    public void updateTestCaseTest1() {
+    @Feature("Редактирование test case")
+    @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
+    public void updateTestCaseTest() {
         // System.out.println(ID);
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
         //  System.out.println("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
+
+        TestCaseBuilder testCase = TestCaseBuilder.builder()
+                .preconditions("preconditions")
+                .steps("steps")
+                .build();
+
+        Assert.assertEquals(testCaseStep.updateTestCase
+                        (testCase.getPreconditions(), testCase.getSteps()).getSuccessText().getText(),
+                "Successfully updated the test case.");
     }
 }
