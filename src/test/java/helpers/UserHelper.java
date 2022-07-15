@@ -1,7 +1,6 @@
 package helpers;
 
 import configuration.Endpoints;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.mapper.ObjectMapperType;
 import models.UserApiBuilder;
 import org.apache.http.HttpStatus;
@@ -16,7 +15,6 @@ public class UserHelper extends UserApiBuilder {
 
         return given()
                 .body(user, ObjectMapperType.GSON)
-                .filter(new AllureRestAssured())
                 .when()
                 .log().body()
                 .post(Endpoints.ADD_USER)
@@ -26,14 +24,12 @@ public class UserHelper extends UserApiBuilder {
                 .log().body()
                 .body("role", equalTo(expected))
                 .extract().as(UserApiBuilder.class, ObjectMapperType.GSON);
-
     }
 
-    public UserApiBuilder addUserError(UserApiBuilder user, String expected) {
+    public void addUserError(UserApiBuilder user, String expected) {
 
-        return given()
+        given()
                 .body(user, ObjectMapperType.GSON)
-                .filter(new AllureRestAssured())
                 .when()
                 .log().body()
                 .post(Endpoints.ADD_USER)
@@ -43,15 +39,12 @@ public class UserHelper extends UserApiBuilder {
                 .log().body()
                 .body("error", equalTo(expected))
                 .extract().as(UserApiBuilder.class, ObjectMapperType.GSON);
-
     }
-
 
     public UserApiBuilder updateUser(UserApiBuilder user, String expected) {
 
         return given()
                 .body(user, ObjectMapperType.GSON)
-                .filter(new AllureRestAssured())
                 .when()
                 .post(Endpoints.UPDATE_USER)
                 .then()
@@ -66,7 +59,6 @@ public class UserHelper extends UserApiBuilder {
 
         return given()
                 .pathParams("user_id", userId.getId())
-                .filter(new AllureRestAssured())
                 .when()
                 .get(Endpoints.GET_USER)
                 .then()
@@ -84,7 +76,6 @@ public class UserHelper extends UserApiBuilder {
 
         return given()
                 .pathParams("email", userId.getEmail())
-                .filter(new AllureRestAssured())
                 .when()
                 .get(Endpoints.GET_USER_BY_EMAIL)
                 .then()
@@ -102,7 +93,6 @@ public class UserHelper extends UserApiBuilder {
 
         return given()
                 .pathParams("user_id", userId.getId())
-                .filter(new AllureRestAssured())
                 .when()
                 .get(Endpoints.GET_USER)
                 .then()
@@ -117,7 +107,6 @@ public class UserHelper extends UserApiBuilder {
 
         return given()
                 .pathParams("user_id", userId)
-                .filter(new AllureRestAssured())
                 .when()
                 .get(Endpoints.GET_USER)
                 .then()
