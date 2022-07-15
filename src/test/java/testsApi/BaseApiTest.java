@@ -34,7 +34,7 @@ public class BaseApiTest {
     public void setupEnv() {
         RestAssured.baseURI = ReadProperties.getUrl();
 
-        RestAssured.requestSpecification = given()
+        RestAssured.requestSpecification = given().urlEncodingEnabled(false)
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password());
     }
