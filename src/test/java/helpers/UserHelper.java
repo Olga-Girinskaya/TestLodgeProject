@@ -16,7 +16,9 @@ public class UserHelper extends UserApiBuilder {
 
         return given()
                 .body(user, ObjectMapperType.GSON)
-                .filter(new AllureRestAssured())
+                .filter(new AllureRestAssured()
+                .setRequestTemplate("http-request.ftl")
+                .setResponseTemplate("http-response.ftl"))
                 .when()
                 .log().body()
                 .post(Endpoints.ADD_USER)

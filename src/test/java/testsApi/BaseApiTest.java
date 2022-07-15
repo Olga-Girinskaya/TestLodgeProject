@@ -36,7 +36,8 @@ public class BaseApiTest {
 
         RestAssured.requestSpecification = given().urlEncodingEnabled(false)
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
-                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password());
+                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
+        ;
     }
 
     @AfterTest
