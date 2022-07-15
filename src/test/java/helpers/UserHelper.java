@@ -1,7 +1,6 @@
 package helpers;
 
 import configuration.Endpoints;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.mapper.ObjectMapperType;
 import models.UserApiBuilder;
 import org.apache.http.HttpStatus;
