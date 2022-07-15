@@ -34,8 +34,7 @@ public class BaseTest {
             Allure.getLifecycle().addAttachment(
                     "screenshot", "image/png", "png"
                     , ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES));
-            driver.quit();
         }
-        else driver.quit();
+        driver.quit();
     }
 }
