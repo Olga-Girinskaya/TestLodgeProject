@@ -91,12 +91,9 @@ public class TestCaseStep extends BaseStep {
         return testCasePage.getNameOneLocator().getText().length();
     }
 
-//    @Test
-//    @Step("ID")
-//    public String IDStep() {
-//        String ID = allTestCasePage.getIdLocator().getText();
-//        return ID;
-//        System.out.println(ID);
-//    }
+    @Step("Получили ID test case")
+    public String IDStep() {
+        return allTestCasePage.getIdLocator().getText();
+    }
 
 }
