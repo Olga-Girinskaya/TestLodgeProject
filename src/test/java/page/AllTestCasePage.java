@@ -24,6 +24,10 @@ public class AllTestCasePage extends BasePage {
     private final By titleLocator = By.xpath("//input[@id ='title']");
     private final By addTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
 
+
+    private By IdLocator = By.cssSelector(".content-header-id");
+
+
     //UPDATE
     private final By idTestCaseButton = By.linkText("C138");
     private final By testCaseCheckBoxLocator =
@@ -142,5 +146,8 @@ public class AllTestCasePage extends BasePage {
 
     public UIElement getDialogWindowTextLocator() {
         return new UIElement(driver, dialogWindowTextLocator);}
+
+    public UIElement getIdLocator() {
+        return new UIElement(driver, IdLocator);}
 
 }

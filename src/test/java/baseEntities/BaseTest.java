@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import page.AllTestCasePage;
 import services.BrowsersService;
 import steps.DashboardStep;
 import steps.LoginStep;
@@ -19,6 +20,7 @@ public class BaseTest {
     protected LoginStep loginStep;
     protected TestCaseStep testCaseStep;
     protected DashboardStep dashboardStep;
+    protected AllTestCasePage allTestCasePage;
 
     @BeforeMethod
     public void setup() {
@@ -26,6 +28,7 @@ public class BaseTest {
         loginStep = new LoginStep(driver);
         testCaseStep = new TestCaseStep(driver);
         dashboardStep = new DashboardStep(driver);
+        allTestCasePage = new AllTestCasePage(driver);
 
         driver.get(ReadProperties.getUrl());
     }

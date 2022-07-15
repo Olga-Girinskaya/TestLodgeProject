@@ -102,7 +102,7 @@ public class TestCaseTest extends BaseTest {
 //        loginStep.login(user.getEmail(), user.getPsw());
 //        testCaseStep.pathToTestCases();
 //        testCaseStep.fileUploadStep();
-//    }
+    //}
 
     @Feature("Отображение всплывающего сообщения Guides & Help")//+
     @Test(testName = "тест на проверку всплывающего сообщения")
@@ -179,25 +179,20 @@ public class TestCaseTest extends BaseTest {
     }
 
 
-//    @Test
-//    public void createTestCaseTest1() {
-//        loginStep.login(user.getEmail(), user.getPsw());
-//        testCaseStep.pathToTestCases();
-//
-//        TestCaseBuilder testCase = TestCaseBuilder.builder()
-//                .title("Создание test case")
-//                .build();
-//
-//        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
-//                "Successfully added the new test case. Add another");
-//
-//        ID = "150";
-//        System.out.println(ID);
-//    }
-//
-//    @Test
-//    public void createTestCaseTest2() {
-//        loginStep.login(user.getEmail(), user.getPsw());
-//        System.out.println(ID);
-//    }
+    @Test
+    public void createTestCaseTest1() {
+        loginStep.login(user.getEmail(), user.getPsw());
+        testCaseStep.pathToTestCases();
+
+        TestCaseBuilder testCase = TestCaseBuilder.builder()
+                .title("Создание test case")
+                .build();
+
+        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
+                "Successfully added the new test case. Add another");
+
+        ID = String.valueOf(testCaseStep.IDStep());
+
+        System.out.println(ID);
+    }
 }

@@ -4,6 +4,7 @@ import baseEntities.BaseStep;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 import page.AllTestCasePage;
 import page.DashboardPage;
 import page.TestCasePage;
@@ -72,14 +73,14 @@ public class TestCaseStep extends BaseStep {
     }
 
     @Step
-    public DashboardPage popupWindowStep(){
+    public DashboardPage popupWindowStep() {
         dashboardPage.getWindowPopupButton().click();
         dashboardPage.getWindowText();
         return dashboardPage;
     }
 
     @Step
-    public AllTestCasePage dialogWindowStep(){
+    public AllTestCasePage dialogWindowStep() {
         allTestCasePage.getTestCaseCheckBox().click();
         allTestCasePage.getTestCaseDeleteButton().click();
         allTestCasePage.getDialogWindowTextLocator();
@@ -90,5 +91,12 @@ public class TestCaseStep extends BaseStep {
         return testCasePage.getNameOneLocator().getText().length();
     }
 
+//    @Test
+//    @Step("ID")
+//    public String IDStep() {
+//        String ID = allTestCasePage.getIdLocator().getText();
+//        return ID;
+//        System.out.println(ID);
+//    }
 
 }
