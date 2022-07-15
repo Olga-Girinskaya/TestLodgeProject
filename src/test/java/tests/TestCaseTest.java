@@ -191,8 +191,16 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
                 "Successfully added the new test case. Add another");
 
-        ID = String.valueOf(testCaseStep.IDStep());
+        ID = testCaseStep.IDStep();
 
-        System.out.println(ID);
+       // System.out.println(ID);
+    }
+
+    @Test(dependsOnMethods = "createTestCaseTest1")
+    public void updateTestCaseTest1() {
+        // System.out.println(ID);
+        loginStep.login(ReadProperties.username(), ReadProperties.password());
+        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
+        //  System.out.println("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
     }
 }
