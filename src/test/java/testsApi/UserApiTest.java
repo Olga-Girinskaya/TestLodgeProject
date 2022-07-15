@@ -15,7 +15,7 @@ public class UserApiTest extends BaseApiTest {
 
     private UserApiBuilder user, userId;
     Faker faker = new Faker();
-    UserHelper userHelper = new UserHelper();
+    private final UserHelper userHelper = new UserHelper();
 
     @Test(testName = "Запрос POST на создание пользователя")
     @Feature("Создание пользователя")
