@@ -56,7 +56,7 @@ public class TestCaseSmokeTest extends BaseTest {
     }
 
     @Feature("Delete test case")
-    @Test(dependsOnMethods = "createTestCaseTest", testName = "Tест на удаление сущности")
+    @Test(dependsOnMethods = "updateTestCaseTest", testName = "Tест на удаление сущности")
     public void deleteTestCaseTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
