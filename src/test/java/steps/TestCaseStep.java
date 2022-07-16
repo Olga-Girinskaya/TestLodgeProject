@@ -60,16 +60,16 @@ public class TestCaseStep extends BaseStep {
         return testCasePage.getNameLocator().getText().length();
     }
 
-    @Step
-    public void fileUploadStep() {
-        allTestCasePage.getIdTestCaseButton().click();
-        allTestCasePage.getEditTestCaseButton().click();
-        allTestCasePage.getDropFiles().click();
-        allTestCasePage.getNewAddButton().click();//ошибка
-        allTestCasePage.getNewAddButton()
-                .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
-        allTestCasePage.getAttachButton().click();
-    }
+//    @Step
+//    public void fileUploadStep() {
+//        allTestCasePage.getIdTestCaseButton().click();
+//        allTestCasePage.getEditTestCaseButton().click();
+//        allTestCasePage.getDropFiles().click();
+//        allTestCasePage.getNewAddButton().click();//ошибка
+//        allTestCasePage.getNewAddButton()
+//                .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
+//        allTestCasePage.getAttachButton().click();
+//    }
 
     @Step
     public DashboardPage popupWindowStep() {
@@ -81,7 +81,7 @@ public class TestCaseStep extends BaseStep {
     @Step
     public AllTestCasePage dialogWindowStep() {
         allTestCasePage.getTestCaseCheckBox().click();
-//        allTestCasePage.getTestCaseDeleteButton().click();
+        allTestCasePage.getDeleteButton().click();
         allTestCasePage.getDialogWindowTextLocator();
         return allTestCasePage;
     }

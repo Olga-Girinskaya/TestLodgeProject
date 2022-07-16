@@ -43,18 +43,13 @@ public class AllTestCasePage extends BasePage {
             By.xpath("//body/div[35]/div[2]/div[3]/div/a[1]");
     private final By successDeleteTextLocator =  By.cssSelector("[class = 'message message-success']");
 
-
     private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
+
+    private final By deleteButton = By.xpath("//tbody/child::tr[2]/child::td[6]");
 
     private final By errorTextLocator =
             By.xpath("//*[@class= 'message message-error']");
 
-    //добавление файла
-    private final By dropFilesLocator =
-            By.xpath("//*[@class= 'attachment-list-empty-add']");
-    private final By newAddButton =
-            By.xpath("//body/input[2]");
-    //By.xpath("//*[@class = 'modern']/input[2]");
 
     private  final By attachButton
             = By.id("attachmentNewSubmit");
@@ -133,12 +128,6 @@ public class AllTestCasePage extends BasePage {
     public UIElement getStepsTestCase() {
         return new UIElement(driver, stepsTestCaseLocator);}
 
-    public UIElement getDropFiles() {
-        return new UIElement(driver, dropFilesLocator);}
-
-    public UIElement getNewAddButton() {
-        return new UIElement(driver, newAddButton);}
-
     public UIElement getAttachButton() {
         return new UIElement(driver, attachButton);}
 
@@ -153,5 +142,8 @@ public class AllTestCasePage extends BasePage {
 
     public UIElement getSuccessDeleteTextLocator() {
         return new UIElement(driver, successDeleteTextLocator);}
+
+    public UIElement getDeleteButton() {
+        return new UIElement(driver, deleteButton);}
 
 }
