@@ -10,7 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import page.AllTestCasePage;
 import services.BrowsersService;
-import steps.DashboardStep;
 import steps.LoginStep;
 import steps.TestCaseStep;
 
@@ -31,6 +30,7 @@ public class BaseTest {
         allTestCasePage = new AllTestCasePage(driver);
 
         driver.get(ReadProperties.getUrl());
+
     }
 
     @AfterMethod
