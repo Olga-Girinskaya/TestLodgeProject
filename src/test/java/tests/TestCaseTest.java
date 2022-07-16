@@ -212,6 +212,8 @@ public class TestCaseTest extends BaseTest {
     @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
     public void deleteTestCaseTest() {
         loginStep.login(user.getEmail(), user.getPsw());
+        testCaseStep.pathToTestCases();
+
         driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
         testCaseStep.deleteTestCase();
 
