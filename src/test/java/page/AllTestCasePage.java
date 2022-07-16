@@ -54,7 +54,6 @@ public class AllTestCasePage extends BasePage {
             By.xpath("//*[@class= 'attachment-list-empty-add']");
     private final By newAddButton =
             By.xpath("//body/input[2]");
-    //By.xpath("//*[@class = 'modern']/input[2]");
 
     private  final By attachButton
             = By.id("attachmentNewSubmit");
@@ -99,15 +98,9 @@ public class AllTestCasePage extends BasePage {
         return new CheckBox(driver, testCaseCheckBoxLocator);
     }
 
-//    //public Button getTestCaseUpdateButton(){
-//        return new Button(driver, testCaseUpdateButton);
-//    }
-
     public Button getSaveTestCaseButton(){
         return new Button(driver, saveTestCaseButton);
     }
-
-
 
     public Button getThisTestCaseDeleteButton() { return new Button(driver, thisTestCaseDeleteButton);}
 

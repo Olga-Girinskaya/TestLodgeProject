@@ -2,7 +2,6 @@ package steps;
 
 import baseEntities.BaseStep;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import page.AllTestCasePage;
 import page.DashboardPage;
@@ -81,7 +80,6 @@ public class TestCaseStep extends BaseStep {
     @Step
     public AllTestCasePage dialogWindowStep() {
         allTestCasePage.getTestCaseCheckBox().click();
-//        allTestCasePage.getTestCaseDeleteButton().click();
         allTestCasePage.getDialogWindowTextLocator();
         return allTestCasePage;
     }
