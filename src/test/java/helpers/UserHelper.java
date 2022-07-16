@@ -44,6 +44,7 @@ public class UserHelper extends UserApiBuilder {
     public UserApiBuilder updateUser(UserApiBuilder user, String expected) {
 
         return given()
+                .pathParams("user_id", user.getId())
                 .body(user, ObjectMapperType.GSON)
                 .when()
                 .post(Endpoints.UPDATE_USER)
