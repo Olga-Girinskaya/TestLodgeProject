@@ -32,7 +32,6 @@ public class TestCaseStep extends BaseStep {
 
     @Step("Update Test Case")
     public TestCasePage updateTestCase(String preconditions, String steps) {
-      //  allTestCasePage.getIdTestCaseButton().click();
         allTestCasePage.getEditTestCaseButton().click();
         allTestCasePage.getPreconditionsTestCase().click();
         allTestCasePage.getPreconditionsTestCase().sendKeys(preconditions);

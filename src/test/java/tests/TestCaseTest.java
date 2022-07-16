@@ -22,19 +22,6 @@ public class TestCaseTest extends BaseTest {
             .psw(ReadProperties.password())
             .build();
 
-    @Feature("Создание test case")//+
-    @Test(testName = "Tест на создание сущности")
-    public void createTestCaseTest() {
-        loginStep.login(user.getEmail(), user.getPsw());
-        testCaseStep.pathToTestCases();
-
-        TestCaseBuilder testCase = TestCaseBuilder.builder()
-                .title("Создание test case")
-                .build();
-
-        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
-                "Successfully added the new test case. Add another");
-    }
 
 //    @Feature("Редактирование test case")//+
 //    @Test(testName = "Tест на редактирование сущности")
@@ -171,8 +158,9 @@ public class TestCaseTest extends BaseTest {
     }
 
 
-    @Test
-    public void createTestCaseTest1() {
+    @Feature("Создание test case")
+    @Test(testName = "Tест на создание сущности")
+    public void createTestCaseTest() {
         loginStep.login(user.getEmail(), user.getPsw());
         testCaseStep.pathToTestCases();
 
@@ -191,12 +179,10 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Feature("Редактирование test case")
-    @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
+    @Test(dependsOnMethods = "createTestCaseTest", testName = "Tест на редактирование сущности")
     public void updateTestCaseTest() {
-        // System.out.println(ID);
         loginStep.login(ReadProperties.username(), ReadProperties.password());
         driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
-        //  System.out.println("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
 
         TestCaseBuilder testCase = TestCaseBuilder.builder()
                 .steps("Отправить API запрос  {base_url}/index.php?/api/v2/add_user")
@@ -209,18 +195,18 @@ public class TestCaseTest extends BaseTest {
                 "Successfully updated the test case.");
     }
 
-    @Feature("Удаление test case") //+
-    @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
-    public void deleteTestCaseTest() {
-        loginStep.login(user.getEmail(), user.getPsw());
-        testCaseStep.pathToTestCases();
-
-        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
-        testCaseStep.deleteTestCase();
-
-        Assert.assertEquals(testCaseStep.checkForDeletionStep(),
-                0, "'элемент отсутствует на странице");
-    }
+//    @Feature("Удаление test case") //+
+//    @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
+//    public void deleteTestCaseTest() {
+//        loginStep.login(user.getEmail(), user.getPsw());
+//        testCaseStep.pathToTestCases();
+//
+//        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
+//        testCaseStep.deleteTestCase();
+//
+//        Assert.assertEquals(testCaseStep.checkForDeletionStep(),
+//                0, "'элемент отсутствует на странице");
+//    }
 
 
 }
