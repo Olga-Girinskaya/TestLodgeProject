@@ -18,7 +18,6 @@ public class BaseTest {
     public static WebDriver driver;
     protected LoginStep loginStep;
     protected TestCaseStep testCaseStep;
-    protected DashboardStep dashboardStep;
     protected AllTestCasePage allTestCasePage;
 
     @BeforeMethod
@@ -26,7 +25,6 @@ public class BaseTest {
         driver = new BrowsersService().getDriver();
         loginStep = new LoginStep(driver);
         testCaseStep = new TestCaseStep(driver);
-        dashboardStep = new DashboardStep(driver);
         allTestCasePage = new AllTestCasePage(driver);
 
         driver.get(ReadProperties.getUrl());
