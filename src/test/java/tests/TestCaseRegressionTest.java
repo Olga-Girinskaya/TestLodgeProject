@@ -2,6 +2,7 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import models.TestCaseBuilder;
@@ -10,6 +11,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("Тестирвоание UI test case")
 public class TestCaseRegressionTest extends BaseTest {
 
     private UserBuilder user = UserBuilder.builder()

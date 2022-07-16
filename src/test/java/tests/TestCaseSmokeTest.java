@@ -2,12 +2,14 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import models.TestCaseBuilder;
 import models.UserBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("Тестирвоание UI test case")
 public class TestCaseSmokeTest extends BaseTest {
 
     protected String ID;
