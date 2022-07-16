@@ -7,4 +7,11 @@
             <class name="tests.LoginTest"/>
         </classes>
     </test>
+
+<!--    <test name="Smoke">-->
+<!--        <classes>-->
+<!--            <class name="tests.TestCaseSmokeTest"/>-->
+<!--            <class name="tests.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

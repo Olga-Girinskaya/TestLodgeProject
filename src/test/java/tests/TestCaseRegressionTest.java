@@ -107,9 +107,9 @@ public class TestCaseRegressionTest extends BaseTest {
         Assert.assertEquals(testCaseStep.countCharNameTestCase(), 250, "Case Title not 250 char");
     }
 
-    @Feature(" test case при вводе 249 символов")
-    @Test(testName = "тест на граничные значения test case с 249 символами")
-    @Step("test case с 249 символами")
+    @Feature(" test case при вводе 250 символов")
+    @Test(testName = "тест на граничные значения test case с 250 символами")
+    @Step("test case с 250 символами")
     public void maxMinusOneAddTestCaseNameSymbolTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
