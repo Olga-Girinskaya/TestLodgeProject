@@ -20,6 +20,10 @@ public class DashboardPage extends BasePage {
 
     private final By thisProjectAddButton = By.id("accept");
 
+    private final By windowPopupButton = By.xpath("//*[contains(@id, 'pendo-image-badge-32cf3f20')]");
+
+    private final By windowTextLocator = By.xpath("//*[contains(@id, 'pendo-text-f106e48e')]");
+
     // Блок иницализации
     public DashboardPage(WebDriver driver) {
         super(driver);
@@ -51,4 +55,10 @@ public class DashboardPage extends BasePage {
         return new Button(driver, thisProjectAddButton);
     }
 
+    public Button getWindowPopupButton() {
+        return new Button(driver, windowPopupButton);}
+
+    public UIElement getWindowText() {
+        return new UIElement(driver, windowTextLocator);
+    }
 }
