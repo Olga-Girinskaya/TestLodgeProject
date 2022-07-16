@@ -8,8 +8,8 @@
     </test>
     <test name="Regression">
         <classes>
-            <class name="tests.DashboardTest"></class>
-            <class name="tests.TestCaseTest"></class>
+            <class name="tests.LoginTest">
+            </class>
         </classes>
     </test>
 </suite>
