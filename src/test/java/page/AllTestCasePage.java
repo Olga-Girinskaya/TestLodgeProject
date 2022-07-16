@@ -18,15 +18,9 @@ public class AllTestCasePage extends BasePage {
     // Блок описания селекторов для элементов
     //CREATE
     private final By addTestCaseLocator = By.id("sidebar-cases-add");
-//    private final By titleLocator =
-//            By.xpath("//*[contains(@class, 'form-control form-control-full form-fields ') and contains(@id, 'title')]");
-
     private final By titleLocator = By.xpath("//input[@id ='title']");
     private final By addTestCaseButton = By.xpath("//*[contains(@class, 'button button-left button-positive button-ok') and contains(text(), 'Add Test Case')]");
-
-
     private By IdLocator = By.cssSelector(".content-header-id");
-
 
     //UPDATE
     private final By idTestCaseButton = By.linkText("C138");
@@ -34,11 +28,11 @@ public class AllTestCasePage extends BasePage {
             By.xpath("//tbody/child::tr[2]/child::td[2]/input");
     private final By testCaseUpdateButton = By.className("editLink");
     private final By saveTestCaseButton = By.id("accept");
-    //today
     private final By editTestCaseButton =
             By.xpath("//*[contains(@class, 'toolbar-button toolbar-button-last')]");
     private final By preconditionsTestCaseLocator = By.id("custom_preconds_display");
     private final By stepsTestCaseLocator = By.id("custom_steps_display");
+    private final By expectedResultLocator = By.id("custom_expected_display");
 
    //DELETE
     private final By testCaseDeleteButton =
@@ -149,5 +143,8 @@ public class AllTestCasePage extends BasePage {
 
     public UIElement getIdLocator() {
         return new UIElement(driver, IdLocator);}
+
+    public UIElement getExpectedResultLocator() {
+        return new UIElement(driver, expectedResultLocator);}
 
 }

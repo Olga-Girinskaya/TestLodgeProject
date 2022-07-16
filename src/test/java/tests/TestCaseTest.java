@@ -51,16 +51,7 @@ public class TestCaseTest extends BaseTest {
 //                "Successfully updated the test case.");
 //    }
 
-    @Feature("Удаление test case") //+
-    @Test(testName = "Tест на удаление сущности")
-    public void deleteTestCaseTest() {
-        loginStep.login(user.getEmail(), user.getPsw());
-        testCaseStep.pathToTestCases();
-        testCaseStep.deleteTestCase();
 
-        Assert.assertEquals(testCaseStep.checkForDeletionStep(),
-                0, "'элемент отсутствует на странице");
-    }
 
     @Feature("Обрезка названия test case при вводе > 251 символов")
     @Test(testName = "Ввод названия test case > 250 символов")
@@ -186,6 +177,9 @@ public class TestCaseTest extends BaseTest {
 
         TestCaseBuilder testCase = TestCaseBuilder.builder()
                 .title("Создание test case")
+                .steps("Отправить API запрос  {base_url}/index.php?/api/v2/add_user")
+                .expected("Response code = 200\n" +
+                        "Пользователь создан")
                 .build();
 
         Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
@@ -193,7 +187,6 @@ public class TestCaseTest extends BaseTest {
 
         ID = testCaseStep.IDStep();
 
-       // System.out.println(ID);
     }
 
     @Feature("Редактирование test case")
@@ -205,12 +198,26 @@ public class TestCaseTest extends BaseTest {
         //  System.out.println("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
 
         TestCaseBuilder testCase = TestCaseBuilder.builder()
-                .preconditions("preconditions")
-                .steps("steps")
+                .steps("Отправить API запрос  {base_url}/index.php?/api/v2/add_user")
+                .expected("Response code = 200\n" +
+                        "Пользователь создан")
                 .build();
 
         Assert.assertEquals(testCaseStep.updateTestCase
-                        (testCase.getPreconditions(), testCase.getSteps()).getSuccessText().getText(),
+                        (testCase.getExpected(), testCase.getSteps()).getSuccessText().getText(),
                 "Successfully updated the test case.");
     }
+
+    @Feature("Удаление test case") //+
+    @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
+    public void deleteTestCaseTest() {
+        loginStep.login(user.getEmail(), user.getPsw());
+        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
+        testCaseStep.deleteTestCase();
+
+        Assert.assertEquals(testCaseStep.checkForDeletionStep(),
+                0, "'элемент отсутствует на странице");
+    }
+
+
 }

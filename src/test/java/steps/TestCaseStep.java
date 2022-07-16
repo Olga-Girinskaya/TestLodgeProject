@@ -45,7 +45,7 @@ public class TestCaseStep extends BaseStep {
 
     @Step("Delete Test Case")
     public void deleteTestCase() {
-        allTestCasePage.getTestCaseCheckBox().click();
+        //allTestCasePage.getTestCaseCheckBox().click();
         allTestCasePage.getTestCaseDeleteButton().click();
         allTestCasePage.getTestCaseDeletePermanentlyButton().click();
         allTestCasePage.getTestCaseConfirmDeleteButton().click();
