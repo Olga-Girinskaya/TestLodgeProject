@@ -30,12 +30,13 @@ public class TestCaseStep extends BaseStep {
     }
 
     @Step("Update Test Case")
-    public TestCasePage updateTestCase(String preconditions, String steps) {
+    public TestCasePage updateTestCase(String expectedResult, String steps) {
         allTestCasePage.getEditTestCaseButton().click();
-        allTestCasePage.getPreconditionsTestCase().click();
-        allTestCasePage.getPreconditionsTestCase().sendKeys(preconditions);
+
         allTestCasePage.getStepsTestCase().click();
         allTestCasePage.getStepsTestCase().sendKeys(steps);
+        allTestCasePage.getExpectedResult().click();
+        allTestCasePage.getExpectedResult().sendKeys(expectedResult);
 
         allTestCasePage.getSaveTestCaseButton().click();
         return testCasePage;
@@ -43,15 +44,15 @@ public class TestCaseStep extends BaseStep {
 
     @Step("Delete Test Case")
     public void deleteTestCase() {
-        //allTestCasePage.getTestCaseCheckBox().click();
-        allTestCasePage.getTestCaseDeleteButton().click();
-        allTestCasePage.getTestCaseDeletePermanentlyButton().click();
+        allTestCasePage.getEditTestCaseButton().click();
+        allTestCasePage.getThisTestCaseDeleteButton().click();
         allTestCasePage.getTestCaseConfirmDeleteButton().click();
     }
 
     @Step
-    public Integer checkForDeletionStep() {
-        return allTestCasePage.getIdTestCaseButton().findElements(By.linkText("C125")).size();
+    public AllTestCasePage checkForDeletionStep() {
+        allTestCasePage.getSuccessDeleteTextLocator().getText();
+        return allTestCasePage;
     }
 
     public Integer countCharNameTestCase() {
@@ -59,16 +60,16 @@ public class TestCaseStep extends BaseStep {
         return testCasePage.getNameLocator().getText().length();
     }
 
-    @Step
-    public void fileUploadStep() {
-        allTestCasePage.getIdTestCaseButton().click();
-        allTestCasePage.getEditTestCaseButton().click();
-        allTestCasePage.getDropFiles().click();
-        allTestCasePage.getNewAddButton().click();//ошибка
-        allTestCasePage.getNewAddButton()
-                .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
-        allTestCasePage.getAttachButton().click();
-    }
+//    @Step
+//    public void fileUploadStep() {
+//        allTestCasePage.getIdTestCaseButton().click();
+//        allTestCasePage.getEditTestCaseButton().click();
+//        allTestCasePage.getDropFiles().click();
+//        allTestCasePage.getNewAddButton().click();//ошибка
+//        allTestCasePage.getNewAddButton()
+//                .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
+//        allTestCasePage.getAttachButton().click();
+//    }
 
     @Step
     public DashboardPage popupWindowStep() {
@@ -80,7 +81,7 @@ public class TestCaseStep extends BaseStep {
     @Step
     public AllTestCasePage dialogWindowStep() {
         allTestCasePage.getTestCaseCheckBox().click();
-        allTestCasePage.getTestCaseDeleteButton().click();
+        allTestCasePage.getDeleteButton().click();
         allTestCasePage.getDialogWindowTextLocator();
         return allTestCasePage;
     }
