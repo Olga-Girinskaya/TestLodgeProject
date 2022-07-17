@@ -7,7 +7,6 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import models.UserApiBuilder;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 @Epic("Тестирование API user")
@@ -15,7 +14,7 @@ public class UserApiTest extends BaseApiTest {
 
     private UserApiBuilder user, userId;
     Faker faker = new Faker();
-    private UserHelper userHelper = new UserHelper();
+    private final UserHelper userHelper = new UserHelper();
 
     @Test(testName = "Запрос POST на создание пользователя")
     @Feature("Создание пользователя")
@@ -35,7 +34,6 @@ public class UserApiTest extends BaseApiTest {
     @Test(testName = "Запрос POST на редактирование роли пользователя", dependsOnMethods = "addUserTest")
     @Feature("Редактирование роли пользователя")
     @Step("Роль пользователя изменена на Tester")
-    @Parameters
     public void successUpdateUserTest() {
 
         user = UserApiBuilder.builder()

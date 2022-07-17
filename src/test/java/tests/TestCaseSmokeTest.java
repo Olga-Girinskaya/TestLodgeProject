@@ -9,7 +9,7 @@ import models.UserBuilder;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Epic("Тестирвоание UI test case")
+@Epic("Тестирование UI test case")
 public class TestCaseSmokeTest extends BaseTest {
 
     protected String ID;
@@ -44,7 +44,7 @@ public class TestCaseSmokeTest extends BaseTest {
     @Test(dependsOnMethods = "createTestCaseTest", testName = "Tест на редактирование сущности")
     public void updateTestCaseTest() {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
-        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
+        driver.get("https://aqa666.testrail.io/index.php?/cases/view/" + ID.substring(1));
 
         TestCaseBuilder testCase = TestCaseBuilder.builder()
                 .steps("Отправить API запрос  {base_url}/index.php?/api/v2/add_user")
@@ -62,7 +62,7 @@ public class TestCaseSmokeTest extends BaseTest {
     public void deleteTestCaseTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
-        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
+        driver.get("https://aqa666.testrail.io/index.php?/cases/view/" + ID.substring(1));
         testCaseStep.deleteTestCase();
 
         Assert.assertEquals(testCaseStep.checkForDeletionStep().getSuccessDeleteTextLocator().getText(), "Successfully flagged the test case as deleted.");

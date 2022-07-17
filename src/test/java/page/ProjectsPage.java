@@ -8,7 +8,7 @@ import wrappers.UIElement;
 public class ProjectsPage extends BasePage {
     private final static String pagePath = "/index.php?/admin/projects/overview";
 
-    private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
+    private final By successTextLocator = By.cssSelector("[class = 'message message-success']");
 
     public ProjectsPage(WebDriver driver) {
         super(driver);

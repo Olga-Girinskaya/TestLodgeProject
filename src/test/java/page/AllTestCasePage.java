@@ -34,16 +34,16 @@ public class AllTestCasePage extends BasePage {
     private final By stepsTestCaseLocator = By.id("custom_steps_display");
     private final By expectedResultLocator = By.id("custom_expected_display");
 
-   //DELETE
-   private final By testCaseEditButton =
-           By.cssSelector(".button-text");
+    //DELETE
+    private final By testCaseEditButton =
+            By.cssSelector(".button-text");
     private final By thisTestCaseDeleteButton =
             By.xpath("//*[contains(@class, 'button button-negative button-delete') and contains(text(), 'Delete this test case')]");
     private final By testCaseConfirmDeleteButton =
             By.xpath("//body/div[35]/div[2]/div[3]/div/a[1]");
-    private final By successDeleteTextLocator =  By.cssSelector("[class = 'message message-success']");
+    private final By successDeleteTextLocator = By.cssSelector("[class = 'message message-success']");
 
-    private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
+    private final By successTextLocator = By.cssSelector("[class = 'message message-success']");
 
     private final By deleteButton = By.xpath("//tbody/child::tr[2]/child::td[6]");
 
@@ -51,7 +51,7 @@ public class AllTestCasePage extends BasePage {
             By.xpath("//*[@class= 'message message-error']");
 
 
-    private  final By attachButton
+    private final By attachButton
             = By.id("attachmentNewSubmit");
 
     private final By dialogWindowTextLocator = By.xpath("//*[contains(@class, 'ui-dialog-title') and contains(text(), 'Confirmation')]");
@@ -86,11 +86,11 @@ public class AllTestCasePage extends BasePage {
         return new Button(driver, projectNameButton);
     }
 
-    public Button getTestCasesButton(){
+    public Button getTestCasesButton() {
         return new Button(driver, testCasesButton);
     }
 
-    public CheckBox getTestCaseCheckBox(){
+    public CheckBox getTestCaseCheckBox() {
         return new CheckBox(driver, testCaseCheckBoxLocator);
     }
 
@@ -98,17 +98,22 @@ public class AllTestCasePage extends BasePage {
 //        return new Button(driver, testCaseUpdateButton);
 //    }
 
-    public Button getSaveTestCaseButton(){
+    public Button getSaveTestCaseButton() {
         return new Button(driver, saveTestCaseButton);
     }
 
 
+    public Button getThisTestCaseDeleteButton() {
+        return new Button(driver, thisTestCaseDeleteButton);
+    }
 
-    public Button getThisTestCaseDeleteButton() { return new Button(driver, thisTestCaseDeleteButton);}
+    public Button getTestCaseEditButton() {
+        return new Button(driver, testCaseEditButton);
+    }
 
-    public Button getTestCaseEditButton() { return new Button(driver, testCaseEditButton);}
-
-    public Button getTestCaseConfirmDeleteButton() { return new Button(driver, testCaseConfirmDeleteButton);}
+    public Button getTestCaseConfirmDeleteButton() {
+        return new Button(driver, testCaseConfirmDeleteButton);
+    }
 
     public UIElement getSuccessText() {
         return new UIElement(driver, successTextLocator);
@@ -118,32 +123,44 @@ public class AllTestCasePage extends BasePage {
         return new UIElement(driver, errorTextLocator);
     }
 
-    public UIElement   getIdTestCaseButton() { return new UIElement(driver, idTestCaseButton);}
+    public UIElement getIdTestCaseButton() {
+        return new UIElement(driver, idTestCaseButton);
+    }
 
-    public Button getEditTestCaseButton() { return new Button(driver, editTestCaseButton);}
+    public Button getEditTestCaseButton() {
+        return new Button(driver, editTestCaseButton);
+    }
 
     public UIElement getPreconditionsTestCase() {
-        return new UIElement(driver, preconditionsTestCaseLocator);}
+        return new UIElement(driver, preconditionsTestCaseLocator);
+    }
 
     public UIElement getStepsTestCase() {
-        return new UIElement(driver, stepsTestCaseLocator);}
+        return new UIElement(driver, stepsTestCaseLocator);
+    }
 
     public UIElement getAttachButton() {
-        return new UIElement(driver, attachButton);}
+        return new UIElement(driver, attachButton);
+    }
 
     public UIElement getDialogWindowTextLocator() {
-        return new UIElement(driver, dialogWindowTextLocator);}
+        return new UIElement(driver, dialogWindowTextLocator);
+    }
 
     public UIElement getIdLocator() {
-        return new UIElement(driver, IdLocator);}
+        return new UIElement(driver, IdLocator);
+    }
 
     public UIElement getExpectedResult() {
-        return new UIElement(driver, expectedResultLocator);}
+        return new UIElement(driver, expectedResultLocator);
+    }
 
     public UIElement getSuccessDeleteTextLocator() {
-        return new UIElement(driver, successDeleteTextLocator);}
+        return new UIElement(driver, successDeleteTextLocator);
+    }
 
     public UIElement getDeleteButton() {
-        return new UIElement(driver, deleteButton);}
+        return new UIElement(driver, deleteButton);
+    }
 
 }

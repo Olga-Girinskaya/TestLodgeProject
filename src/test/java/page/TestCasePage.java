@@ -37,7 +37,8 @@ public class TestCasePage extends BasePage {
     }
 
     public UIElement getSuccessText() {
-        return new UIElement(driver, successTextLocator);}
+        return new UIElement(driver, successTextLocator);
+    }
 
     public CheckBox getTestCaseCheckBox() {
         return new CheckBox(driver, TestCaseCheckBoxLocator);

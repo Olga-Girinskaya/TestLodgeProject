@@ -13,13 +13,13 @@ public class LoginStep extends BaseStep {
     }
 
     @Step("Удачный логин с {email}/{psw}")
-    public DashboardPage successLogin(String email, String psw){
+    public DashboardPage successLogin(String email, String psw) {
         login(email, psw);
         return dashboardPage;
     }
 
     @Step("Неудачный логин с {email}/{psw}")
-    public LoginPage incorrectLogin(String email, String psw)  {
+    public LoginPage incorrectLogin(String email, String psw) {
         login(email, psw);
 
         return loginPage;

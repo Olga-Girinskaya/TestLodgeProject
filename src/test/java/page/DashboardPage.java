@@ -56,7 +56,8 @@ public class DashboardPage extends BasePage {
     }
 
     public Button getWindowPopupButton() {
-        return new Button(driver, windowPopupButton);}
+        return new Button(driver, windowPopupButton);
+    }
 
     public UIElement getWindowText() {
         return new UIElement(driver, windowTextLocator);

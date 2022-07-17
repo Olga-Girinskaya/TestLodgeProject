@@ -11,7 +11,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Epic("Тестирвоание UI test case")
+@Epic("Тестирование UI test case")
 public class TestCaseRegressionTest extends BaseTest {
 
     private UserBuilder user = UserBuilder.builder()
