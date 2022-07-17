@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Main Suite" thread-count="2" parallel = "classes">
-    <test name="Regression">
+<suite name="Main Suite" thread-count="2" parallel = "tests">
+        <test name="Regression">
+            <classes>
+                <class name="tests.TestCaseRegressionTest"></class>
+            </classes>
+        </test>
+
+    <test name="Smoke">
         <classes>
-            <class name="tests.TestCaseRegressionTest"/>
-            <class name="tests.LoginTest"/>
+            <class name="tests.TestCaseSmokeTest"></class>
         </classes>
     </test>
-
-<!--    <test name="Smoke">-->
-<!--        <classes>-->
-<!--            <class name="tests.TestCaseSmokeTest"/>-->
-<!--            <class name="tests.LoginTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>
