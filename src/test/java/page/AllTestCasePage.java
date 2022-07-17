@@ -35,24 +35,21 @@ public class AllTestCasePage extends BasePage {
     private final By expectedResultLocator = By.id("custom_expected_display");
 
    //DELETE
-    private final By testCaseDeleteButton =
-            By.cssSelector("[id = 'deleteCases']");
-    private final By testCaseDeletePermanentlyButton =
-            By.cssSelector("[class = 'button button-left button-positive button-no-margin-right dialog-action-secondary button-black']");
+   private final By testCaseEditButton =
+           By.cssSelector(".button-text");
+    private final By thisTestCaseDeleteButton =
+            By.xpath("//*[contains(@class, 'button button-negative button-delete') and contains(text(), 'Delete this test case')]");
     private final By testCaseConfirmDeleteButton =
-            By.cssSelector("[class = 'button button-left button-black dialog-action-default']");
+            By.xpath("//body/div[35]/div[2]/div[3]/div/a[1]");
+    private final By successDeleteTextLocator =  By.cssSelector("[class = 'message message-success']");
 
     private final By successTextLocator =  By.cssSelector("[class = 'message message-success']");
+
+    private final By deleteButton = By.xpath("//tbody/child::tr[2]/child::td[6]");
 
     private final By errorTextLocator =
             By.xpath("//*[@class= 'message message-error']");
 
-    //добавление файла
-    private final By dropFilesLocator =
-            By.xpath("//*[@class= 'attachment-list-empty-add']");
-    private final By newAddButton =
-            By.xpath("//body/input[2]");
-    //By.xpath("//*[@class = 'modern']/input[2]");
 
     private  final By attachButton
             = By.id("attachmentNewSubmit");
@@ -97,17 +94,19 @@ public class AllTestCasePage extends BasePage {
         return new CheckBox(driver, testCaseCheckBoxLocator);
     }
 
-    public Button getTestCaseUpdateButton(){
-        return new Button(driver, testCaseUpdateButton);
-    }
+//    //public Button getTestCaseUpdateButton(){
+//        return new Button(driver, testCaseUpdateButton);
+//    }
 
     public Button getSaveTestCaseButton(){
         return new Button(driver, saveTestCaseButton);
     }
 
-    public Button getTestCaseDeleteButton() { return new Button(driver, testCaseDeleteButton);}
 
-    public Button getTestCaseDeletePermanentlyButton() { return new Button(driver, testCaseDeletePermanentlyButton);}
+
+    public Button getThisTestCaseDeleteButton() { return new Button(driver, thisTestCaseDeleteButton);}
+
+    public Button getTestCaseEditButton() { return new Button(driver, testCaseEditButton);}
 
     public Button getTestCaseConfirmDeleteButton() { return new Button(driver, testCaseConfirmDeleteButton);}
 
@@ -129,12 +128,6 @@ public class AllTestCasePage extends BasePage {
     public UIElement getStepsTestCase() {
         return new UIElement(driver, stepsTestCaseLocator);}
 
-    public UIElement getDropFiles() {
-        return new UIElement(driver, dropFilesLocator);}
-
-    public UIElement getNewAddButton() {
-        return new UIElement(driver, newAddButton);}
-
     public UIElement getAttachButton() {
         return new UIElement(driver, attachButton);}
 
@@ -144,7 +137,13 @@ public class AllTestCasePage extends BasePage {
     public UIElement getIdLocator() {
         return new UIElement(driver, IdLocator);}
 
-    public UIElement getExpectedResultLocator() {
+    public UIElement getExpectedResult() {
         return new UIElement(driver, expectedResultLocator);}
+
+    public UIElement getSuccessDeleteTextLocator() {
+        return new UIElement(driver, successDeleteTextLocator);}
+
+    public UIElement getDeleteButton() {
+        return new UIElement(driver, deleteButton);}
 
 }

@@ -13,14 +13,10 @@ public class TestCasePage extends BasePage {
 
     private final By successTextLocator =
             By.cssSelector(".message.message-success");
-    //By.xpath("//*[contains(@class, 'message message-success')]");
-
-
 
     private final By TestCaseCheckBoxLocator =
             By.xpath("//*[contains(@class, 'selectionCheckbox') and contains(@name, 'selected-4')]");
 
-    // private final By nameTestCaseLocator = By.cssSelector(".content-header-title");
     private final By editButton = By.cssSelector(".button-text");
     private final By stepDisplay = By.id("custom_steps_display");
     private final By saveButton = By.id("accept");

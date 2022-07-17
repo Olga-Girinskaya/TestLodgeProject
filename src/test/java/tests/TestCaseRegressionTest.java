@@ -11,35 +11,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Epic("UI тестирование test cases")
-public class TestCaseTest extends BaseTest {
-
-    protected String ID;
+@Epic("Тестирвоание UI test case")
+public class TestCaseRegressionTest extends BaseTest {
 
     private UserBuilder user = UserBuilder.builder()
 
             .email(ReadProperties.username())
             .psw(ReadProperties.password())
             .build();
-
-
-//    @Feature("Редактирование test case")//+
-//    @Test(testName = "Tест на редактирование сущности")
-//    public void updateTestCaseTest() {
-//        loginStep.login(user.getEmail(), user.getPsw());
-//        testCaseStep.pathToTestCases();
-//
-//        TestCaseBuilder testCase = TestCaseBuilder.builder()
-//                .preconditions("preconditions")
-//                .steps("steps")
-//                .build();
-//
-//        Assert.assertEquals(testCaseStep.updateTestCase
-//                        (testCase.getPreconditions(), testCase.getSteps()).getSuccessText().getText(),
-//                "Successfully updated the test case.");
-//    }
-
-
 
     @Feature("Обрезка названия test case до 250 символов при вводе 251 символа")
     @Test(testName = "Ввод названия test case > 250 символов")
@@ -75,15 +54,7 @@ public class TestCaseTest extends BaseTest {
                 "Field Title is a required field.");
     }
 
-//    @Feature("Загрузка Upload.txt в test case")//-
-//    @Test(testName = "тест на загрузку файла")
-//    public void fileUploadTest() {//не находит xpath: //body[@class = 'modern']/input[4]]
-//        loginStep.login(user.getEmail(), user.getPsw());
-//        testCaseStep.pathToTestCases();
-//        testCaseStep.fileUploadStep();
-    //}
-
-    @Feature("Отображение всплывающего сообщения Guides & Help")//+
+    @Feature("Отображение всплывающего сообщения Guides & Help")
     @Test(testName = "тест на проверку всплывающего сообщения")
     public void popupWindowTest() {
         loginStep.login(user.getEmail(), user.getPsw());
@@ -91,7 +62,7 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Guides & Help");
     }
 
-    @Feature("Отображение Confirmation при удалении test case")//+
+    @Feature("Отображение Confirmation при удалении test case")
     @Test(testName = "тест отображения диалогового окна")
     public void dialogWindowTest() {
         loginStep.login(user.getEmail(), user.getPsw());
@@ -100,7 +71,7 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.dialogWindowStep().getDialogWindowTextLocator().getText(), "Confirmation");
     }
 
-    @Feature(" test case при вводе 1 символа")//+
+    @Feature(" test case при вводе 1 символа")
     @Test(testName = "тест на граничные значения test case с 1 символом")
     @Step(" test case с 1 символом")
     public void oneAddTestCaseNameSymbolTest() {
@@ -119,13 +90,13 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.countCharOneNameTestCase(), 1, "Case Title not 1 char");
     }
 
-    @Feature(" test case при вводе 250 символов")//+
+    @Feature(" test case при вводе 249 символов")
     @Test(testName = "тест на граничные значения test case с 250 символами")
     @Step("test case с 250 символами")
     public void maxAddTestCaseNameSymbolTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
-        String generatedString = RandomStringUtils.randomAlphabetic(250);
+        String generatedString = RandomStringUtils.randomAlphabetic(249);
         testCaseStep.pathToTestCases();
 
         TestCaseBuilder testCase = TestCaseBuilder.builder()
@@ -135,10 +106,10 @@ public class TestCaseTest extends BaseTest {
         Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
                 "Successfully added the new test case. Add another");
 
-        Assert.assertEquals(testCaseStep.countCharNameTestCase(), 250, "Case Title not 250 char");
+        Assert.assertEquals(testCaseStep.countCharNameTestCase(), 249, "Case Title not 250 char");
     }
 
-    @Feature(" test case при вводе 250 символов")//+
+    @Feature(" test case при вводе 250 символов")
     @Test(testName = "тест на граничные значения test case с 250 символами")
     @Step("test case с 250 символами")
     public void maxMinusOneAddTestCaseNameSymbolTest() {
@@ -156,57 +127,4 @@ public class TestCaseTest extends BaseTest {
 
         Assert.assertEquals(testCaseStep.countCharNameTestCase(), 249, "Case Title not 249 char");
     }
-
-
-    @Feature("Создание test case")
-    @Test(testName = "Tест на создание сущности")
-    public void createTestCaseTest() {
-        loginStep.login(user.getEmail(), user.getPsw());
-        testCaseStep.pathToTestCases();
-
-        TestCaseBuilder testCase = TestCaseBuilder.builder()
-                .title("Создание test case")
-                .steps("Отправить API запрос  {base_url}/index.php?/api/v2/add_user")
-                .expected("Response code = 200\n" +
-                        "Пользователь создан")
-                .build();
-
-        Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
-                "Successfully added the new test case. Add another");
-
-        ID = testCaseStep.IDStep();
-
-    }
-
-    @Feature("Редактирование test case")
-    @Test(dependsOnMethods = "createTestCaseTest", testName = "Tест на редактирование сущности")
-    public void updateTestCaseTest() {
-        loginStep.login(ReadProperties.username(), ReadProperties.password());
-        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
-
-        TestCaseBuilder testCase = TestCaseBuilder.builder()
-                .steps("Отправить API запрос  {base_url}/index.php?/api/v2/add_user")
-                .expected("Response code = 200\n" +
-                        "Пользователь создан")
-                .build();
-
-        Assert.assertEquals(testCaseStep.updateTestCase
-                        (testCase.getExpected(), testCase.getSteps()).getSuccessText().getText(),
-                "Successfully updated the test case.");
-    }
-
-//    @Feature("Удаление test case") //+
-//    @Test(dependsOnMethods = "createTestCaseTest1", testName = "Tест на редактирование сущности")
-//    public void deleteTestCaseTest() {
-//        loginStep.login(user.getEmail(), user.getPsw());
-//        testCaseStep.pathToTestCases();
-//
-//        driver.get("https://aqa666.testrail.io/index.php?/cases/view/"+ ID.substring(1));
-//        testCaseStep.deleteTestCase();
-//
-//        Assert.assertEquals(testCaseStep.checkForDeletionStep(),
-//                0, "'элемент отсутствует на странице");
-//    }
-
-
 }

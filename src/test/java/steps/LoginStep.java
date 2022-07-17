@@ -10,7 +10,6 @@ public class LoginStep extends BaseStep {
 
     public LoginStep(WebDriver driver) {
         super(driver);
-
     }
 
     @Step("Удачный логин с {email}/{psw}")
