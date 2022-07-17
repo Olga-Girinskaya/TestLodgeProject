@@ -15,6 +15,7 @@ import steps.TestCaseStep;
 
 
 public class BaseTest {
+
     public WebDriver driver;
     protected LoginStep loginStep;
     protected TestCaseStep testCaseStep;
