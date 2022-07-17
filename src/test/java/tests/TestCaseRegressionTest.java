@@ -54,13 +54,13 @@ public class TestCaseRegressionTest extends BaseTest {
                 "Field Title is a required field.");
     }
 
-//    @Feature("Отображение всплывающего сообщения Guides & Help")
-//    @Test(testName = "тест на проверку всплывающего сообщения")
-//    public void popupWindowTest() {
-//        loginStep.login(user.getEmail(), user.getPsw());
-//
-//        Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Guides & Help");
-//    }
+    @Feature("Отображение всплывающего сообщения Guides & Help")
+    @Test(testName = "тест на проверку всплывающего сообщения")
+    public void popupWindowTest() {
+        loginStep.login(user.getEmail(), user.getPsw());
+
+        Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Guides & Help");
+    }
 
     @Feature("Отображение Confirmation при удалении test case")
     @Test(testName = "тест отображения диалогового окна")
