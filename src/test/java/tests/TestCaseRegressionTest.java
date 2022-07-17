@@ -59,7 +59,7 @@ public class TestCaseRegressionTest extends BaseTest {
     public void popupWindowTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
-        Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Guides & Help");
+        Assert.assertEquals(testCaseStep.popupWindowStep().getWindowText().getText(), "Integration Tutorials");
     }
 
     @Feature("Отображение Confirmation при удалении test case")

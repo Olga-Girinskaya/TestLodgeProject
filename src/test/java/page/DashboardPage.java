@@ -22,7 +22,7 @@ public class DashboardPage extends BasePage {
 
     private final By windowPopupButton = By.id("pendo-image-badge-32cf3f20");
 
-    private final By windowTextLocator = By.id("pendo-text-f106e48e");
+    private final By windowTextLocator = By.id("pendo-text-ba494baf");
 
     // Блок иницализации
     public DashboardPage(WebDriver driver) {
