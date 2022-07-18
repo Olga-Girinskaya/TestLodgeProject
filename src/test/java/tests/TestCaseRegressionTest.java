@@ -90,13 +90,13 @@ public class TestCaseRegressionTest extends BaseTest {
         Assert.assertEquals(testCaseStep.countCharOneNameTestCase(), 1, "Case Title not 1 char");
     }
 
-    @Feature(" test case при вводе 249 символов")
+    @Feature(" test case при вводе 250 символов")
     @Test(testName = "тест на граничные значения test case с 250 символами")
     @Step("test case с 250 символами")
     public void maxAddTestCaseNameSymbolTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 
-        String generatedString = RandomStringUtils.randomAlphabetic(249);
+        String generatedString = RandomStringUtils.randomAlphabetic(250);
         testCaseStep.pathToTestCases();
 
         TestCaseBuilder testCase = TestCaseBuilder.builder()
@@ -106,12 +106,12 @@ public class TestCaseRegressionTest extends BaseTest {
         Assert.assertEquals(testCaseStep.createTestCase(testCase.getTitle()).getSuccessText().getText(),
                 "Successfully added the new test case. Add another");
 
-        Assert.assertEquals(testCaseStep.countCharNameTestCase(), 249, "Case Title not 250 char");
+        Assert.assertEquals(testCaseStep.countCharNameTestCase(), 250, "Case Title not 250 char");
     }
 
-    @Feature(" test case при вводе 250 символов")
-    @Test(testName = "тест на граничные значения test case с 250 символами")
-    @Step("test case с 250 символами")
+    @Feature(" test case при вводе 249 символов")
+    @Test(testName = "тест на граничные значения test case с 249 символами")
+    @Step("test case с 249 символами")
     public void maxMinusOneAddTestCaseNameSymbolTest() {
         loginStep.login(user.getEmail(), user.getPsw());
 

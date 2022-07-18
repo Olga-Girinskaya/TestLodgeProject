@@ -2,7 +2,6 @@ package steps;
 
 import baseEntities.BaseStep;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import page.AllTestCasePage;
 import page.DashboardPage;
@@ -59,17 +58,6 @@ public class TestCaseStep extends BaseStep {
 
         return testCasePage.getNameLocator().getText().length();
     }
-
-//    @Step
-//    public void fileUploadStep() {
-//        allTestCasePage.getIdTestCaseButton().click();
-//        allTestCasePage.getEditTestCaseButton().click();
-//        allTestCasePage.getDropFiles().click();
-//        allTestCasePage.getNewAddButton().click();//ошибка
-//        allTestCasePage.getNewAddButton()
-//                .sendKeys("/java/lessons/TestLodgeProject/src/test/resources/Upload.txt");
-//        allTestCasePage.getAttachButton().click();
-//    }
 
     @Step
     public DashboardPage popupWindowStep() {

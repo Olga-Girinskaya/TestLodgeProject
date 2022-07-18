@@ -26,9 +26,9 @@ public class UserHelper extends UserApiBuilder {
                 .extract().as(UserApiBuilder.class, ObjectMapperType.GSON);
     }
 
-    public void addUserError(UserApiBuilder user, String expected) {
+    public UserApiBuilder addUserError(UserApiBuilder user, String expected) {
 
-        given()
+     return given()
                 .body(user, ObjectMapperType.GSON)
                 .when()
                 .log().body()
@@ -38,7 +38,8 @@ public class UserHelper extends UserApiBuilder {
                 .statusCode(HttpStatus.SC_BAD_REQUEST)
                 .log().body()
                 .body("error", equalTo(expected))
-                .extract().as(UserApiBuilder.class, ObjectMapperType.GSON);
+                .extract()
+                .as(UserApiBuilder.class, ObjectMapperType.GSON);
     }
 
     public UserApiBuilder updateUser(UserApiBuilder user, String expected) {

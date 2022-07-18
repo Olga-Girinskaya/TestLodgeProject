@@ -121,6 +121,7 @@ public class UserApiTest extends BaseApiTest {
                 .build();
 
         String expected = "Field :name is too long (250 characters at most).";
+
         userHelper.addUserError(user, expected);
     }
 
