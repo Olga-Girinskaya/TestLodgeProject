@@ -94,15 +94,9 @@ public class AllTestCasePage extends BasePage {
         return new CheckBox(driver, testCaseCheckBoxLocator);
     }
 
-//    //public Button getTestCaseUpdateButton(){
-//        return new Button(driver, testCaseUpdateButton);
-//    }
-
     public Button getSaveTestCaseButton(){
         return new Button(driver, saveTestCaseButton);
     }
-
-
 
     public Button getThisTestCaseDeleteButton() { return new Button(driver, thisTestCaseDeleteButton);}
 

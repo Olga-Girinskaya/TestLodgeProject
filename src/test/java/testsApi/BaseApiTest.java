@@ -22,8 +22,8 @@ public class BaseApiTest {
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
                 .filter(new AllureRestAssured()
-                .setRequestTemplate("http-request.ftl")
-                .setResponseTemplate("http-response.ftl"));
+                        .setRequestTemplate("http-request.ftl")
+                        .setResponseTemplate("http-response.ftl"));
     }
 
     @AfterTest
